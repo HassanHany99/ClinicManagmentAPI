@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "W:\\Backend Engineering\\ClinicApi\\ClinicAPI\\ClinicAPI.csproj": {}
+    "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\ClinicAPI.csproj": {}
   },
   "projects": {
-    "W:\\Backend Engineering\\ClinicApi\\ClinicAPI\\ClinicAPI.csproj": {
+    "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\ClinicAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "W:\\Backend Engineering\\ClinicApi\\ClinicAPI\\ClinicAPI.csproj",
+        "projectUniqueName": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\ClinicAPI.csproj",
         "projectName": "ClinicAPI",
-        "projectPath": "W:\\Backend Engineering\\ClinicApi\\ClinicAPI\\ClinicAPI.csproj",
+        "projectPath": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\ClinicAPI.csproj",
         "packagesPath": "C:\\Users\\HASSAN\\.nuget\\packages\\",
-        "outputPath": "W:\\Backend Engineering\\ClinicApi\\ClinicAPI\\obj\\",
+        "outputPath": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

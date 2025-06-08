@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FpAq/yz92hY=",
+  "dgSpecHash": "SGlUfA/Z7xQ=",
   "success": true,
-  "projectFilePath": "W:\\Backend Engineering\\ClinicApi\\ClinicAPI\\ClinicAPI.csproj",
+  "projectFilePath": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\ClinicAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HASSAN\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\HASSAN\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",

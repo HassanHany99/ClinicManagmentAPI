@@ -24,15 +24,17 @@ namespace ClinicAPI.Controllers
         [HttpGet]
         public ActionResult<List<ClinicReadDTO>> GetClinics()
         {
-            var clinics = _mapper.Map<List<ClinicReadDTO>>(_context.Clinics.
+            var clinics = _mapper.Map<List<ClinicReadDTO>>(_context.Clinics.Include(c=>c.Doctors).
                 AsNoTracking().ToList());
             return Ok(clinics);
 
         }
         [HttpGet("{id}")]
-        public ActionResult<ClinicReadDTO> GetById(int id) { 
-        
-            var clinic = _context.Clinics.FirstOrDefault(x => x.Id == id);
+        public ActionResult<ClinicReadDTO> GetById(int id) {
+
+            var clinic = _context.Clinics.
+                Include(c => c.Doctors)
+                .FirstOrDefault(x => x.Id == id);
             if (clinic == null)
             {
                 return NotFound();

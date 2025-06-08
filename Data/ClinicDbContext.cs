@@ -2,7 +2,7 @@
 using ClinicAPI.Models;
 
 namespace ClinicAPI.Data
-{
+{                                  
     public class ClinicDbContext :DbContext
     {
         public DbSet<Doctor> Doctors => Set<Doctor>(); 

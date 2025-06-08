@@ -30,7 +30,7 @@ namespace ClinicAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime>("AppointmentDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("DoctorId")

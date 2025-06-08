@@ -1,5 +1,89 @@
 [
   {
+    "ContainingType": "ClinicAPI.Controllers.AppointmentController",
+    "Method": "GetAppointments",
+    "RelativePath": "api/Appointment",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ClinicAPI.DTOs.Appointment.AppointmentReadDTO, ClinicAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ClinicAPI.Controllers.AppointmentController",
+    "Method": "CrateAppointment",
+    "RelativePath": "api/Appointment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ClinicAPI.DTOs.Appointment.AppointmentCreateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicAPI.Controllers.AppointmentController",
+    "Method": "UpdateAppointment",
+    "RelativePath": "api/Appointment",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ClinicAPI.DTOs.Appointment.AppointmentUpdateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicAPI.Controllers.AppointmentController",
+    "Method": "GetAppointmentById",
+    "RelativePath": "api/Appointment/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicAPI.Controllers.AppointmentController",
+    "Method": "DeleteAppointment",
+    "RelativePath": "api/Appointment/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ClinicAPI.Controllers.ClinicController",
     "Method": "GetClinics",
     "RelativePath": "api/Clinic",
@@ -86,6 +170,95 @@
     "ContainingType": "ClinicAPI.Controllers.ClinicController",
     "Method": "DeleteClinic",
     "RelativePath": "api/Clinic/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicAPI.Controllers.DiagnosisController",
+    "Method": "AddDiagnosis",
+    "RelativePath": "api/Diagnosis",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "diagnosisDTO",
+        "Type": "ClinicAPI.DTOs.Diagnosis.CreateDiagnosisDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicAPI.Controllers.DiagnosisController",
+    "Method": "GetAllDiagnosis",
+    "RelativePath": "api/Diagnosis",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ClinicAPI.DTOs.Diagnosis.ReadDiagnosisDTO, ClinicAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ClinicAPI.Controllers.DiagnosisController",
+    "Method": "GetDiagnosisById",
+    "RelativePath": "api/Diagnosis/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicAPI.Controllers.DiagnosisController",
+    "Method": "UpdateDiagnosis",
+    "RelativePath": "api/Diagnosis/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ClinicAPI.DTOs.Diagnosis.UpdateDiagnosisDTO",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicAPI.Controllers.DiagnosisController",
+    "Method": "DeleteDiagnosis",
+    "RelativePath": "api/Diagnosis/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -200,7 +373,7 @@
   {
     "ContainingType": "ClinicAPI.Controllers.PatientController",
     "Method": "AddPatient",
-    "RelativePath": "api/Patient/{id}",
+    "RelativePath": "api/Patient",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -209,7 +382,55 @@
         "Name": "record",
         "Type": "ClinicAPI.DTOs.Patient.PatientCreateDTO",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicAPI.Controllers.PatientController",
+    "Method": "GetPatientById",
+    "RelativePath": "api/Patient/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicAPI.Controllers.PatientController",
+    "Method": "UpdatePatient",
+    "RelativePath": "api/Patient/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
       },
+      {
+        "Name": "dto",
+        "Type": "ClinicAPI.DTOs.Patient.PatientUpdateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicAPI.Controllers.PatientController",
+    "Method": "DeletePatient",
+    "RelativePath": "api/Patient/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
       {
         "Name": "id",
         "Type": "System.Int32",
