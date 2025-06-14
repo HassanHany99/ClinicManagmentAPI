@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using ClinicAPI.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
+using ClinicAPI.Services.Interfaces;
 
 
 namespace ClinicAPI.Controllers
@@ -13,73 +14,49 @@ namespace ClinicAPI.Controllers
     [ApiController]
     public class ClinicController : ControllerBase
     {
-        private readonly IMapper _mapper;
-        private readonly ClinicDbContext _context;
-        public ClinicController(ClinicDbContext context, IMapper mapper)
+       
+        private readonly IClinicService _clinicService;
+        public ClinicController(IClinicService clinicService)
         {
-            _context = context;
-            _mapper = mapper;
+            _clinicService = clinicService;
         }
         // APIs
         [HttpGet]
         public ActionResult<List<ClinicReadDTO>> GetClinics()
         {
-            var clinics = _mapper.Map<List<ClinicReadDTO>>(_context.Clinics.Include(c=>c.Doctors).
-                AsNoTracking().ToList());
-            return Ok(clinics);
-
+            return Ok(_clinicService.GetClinics());
         }
+
+
         [HttpGet("{id}")]
-        public ActionResult<ClinicReadDTO> GetById(int id) {
-
-            var clinic = _context.Clinics.
-                Include(c => c.Doctors)
-                .FirstOrDefault(x => x.Id == id);
-            if (clinic == null)
-            {
-                return NotFound();
-            }
-            var dto =_mapper.Map<ClinicReadDTO>(clinic);
-             return Ok(dto);
-
+        public ActionResult<ClinicReadDTO> GetClinicById(int id) {
+            var existClinic = _clinicService.GetClinicById(id);
+            if (existClinic == null) return NotFound();
+            return Ok(existClinic);
         }
 
         [HttpPut("{id}")]
         public ActionResult UpdateClinic( int id, ClinicUpdateDTO clinicDTO)
         {
-            var UpClinic = _context.Clinics.FirstOrDefault(x => x.Id == id);
-            if (UpClinic == null)
-            {
-                return NotFound();
-            }
-            _mapper.Map(clinicDTO,UpClinic);
-            _context.SaveChanges();
+            var clinic = _clinicService.UpdateClinic(id, clinicDTO);
+            if (!clinic) return NotFound();
             return NoContent();
-
+ 
         }
 
         [HttpPost]
         public ActionResult CreateClinic(ClinicCreateDTO dto)
         {
-            var clinic = _mapper.Map<Clinic>(dto);
-            _context.Clinics.Add(clinic);
-            _context.SaveChanges();
-            return CreatedAtAction(nameof(GetById), new { id = clinic.Id },clinic);
-
+            var clinic = _clinicService.CreateClinic(dto);
+            return CreatedAtAction(nameof(GetClinicById), new { id = clinic.Id },clinic);
         }
+
         [HttpDelete("{id}")]
-        public ActionResult DeleteClinic(int id) { 
-        
-            var clinic = _context.Clinics.FirstOrDefault( x => x.Id == id);
-            if (clinic == null)
-            {
-                return NotFound();
-            }
-            _context.Clinics.Remove(clinic);
-            _context.SaveChanges();
+        public ActionResult DeleteClinic(int id) 
+        { 
+            var clinic = _clinicService.DeleteClinic(id);
+            if (!clinic) return NotFound();
             return NoContent();
-        
-    
         }
 
     }

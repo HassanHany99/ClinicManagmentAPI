@@ -3,22 +3,20 @@
   "WorkspaceRootPath": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\controllers\\diagnosiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:controllers\\diagnosiscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\controllers\\cliniccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:controllers\\cliniccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/HASSAN/ClinicDb/True/SqlTable/dbo.Appointments.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\services\\implementations\\clinicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:services\\implementations\\clinicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\dtos\\diagnosis\\updatediagnosisdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:dtos\\diagnosis\\updatediagnosisdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\services\\interfaces\\iclinicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:services\\interfaces\\iclinicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/HASSAN/ClinicDb/True/SqlTable/dbo.Diagnosis.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\profiles\\diagnosisprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:profiles\\diagnosisprofile.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,60 +39,75 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "dbo.Diagnosis [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/HASSAN/ClinicDb/True/SqlTable/dbo.Diagnosis.sql",
-              "ToolTip": "dbo.Diagnosis [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-06-08T12:48:04.163Z",
+              "Title": "Program.cs",
+              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAiwBgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T14:06:12.805Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "dbo.Appointments [Data]",
-              "DocumentMoniker": "ViewDataWindow_MSSQL__/HASSAN/ClinicDb/True/SqlTable/dbo.Appointments.sql",
-              "ToolTip": "dbo.Appointments [Data]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
-              "WhenOpened": "2025-06-08T12:45:13.793Z",
+              "Title": "ClinicService.cs",
+              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Services\\Implementations\\ClinicService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\ClinicService.cs",
+              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Services\\Implementations\\ClinicService.cs",
+              "RelativeToolTip": "Services\\Implementations\\ClinicService.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAkwEwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-14T14:04:47.776Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UpdateDiagnosisDTO.cs",
-              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\DTOs\\Diagnosis\\UpdateDiagnosisDTO.cs",
-              "RelativeDocumentMoniker": "DTOs\\Diagnosis\\UpdateDiagnosisDTO.cs",
-              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\DTOs\\Diagnosis\\UpdateDiagnosisDTO.cs",
-              "RelativeToolTip": "DTOs\\Diagnosis\\UpdateDiagnosisDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "IClinicService.cs",
+              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Services\\Interfaces\\IClinicService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\IClinicService.cs",
+              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Services\\Interfaces\\IClinicService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\IClinicService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-08T12:30:33.668Z",
+              "WhenOpened": "2025-06-14T13:50:11.784Z",
               "EditorCaption": ""
-            },
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "a536f2ce-9715-4537-8717-12c2eee67260",
+        "Display": 1,
+        "X": 139,
+        "Y": 134,
+        "Width": 1302,
+        "Height": 741,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "DiagnosisController.cs",
-              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Controllers\\DiagnosisController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DiagnosisController.cs",
-              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Controllers\\DiagnosisController.cs",
-              "RelativeToolTip": "Controllers\\DiagnosisController.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAA5wEsAAABLAAAAAAAAAA==",
+              "Title": "ClinicController.cs",
+              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Controllers\\ClinicController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ClinicController.cs",
+              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Controllers\\ClinicController.cs",
+              "RelativeToolTip": "Controllers\\ClinicController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-07T16:25:23.72Z",
+              "WhenOpened": "2025-06-14T15:21:56.059Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DiagnosisProfile.cs",
-              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Profiles\\DiagnosisProfile.cs",
-              "RelativeDocumentMoniker": "Profiles\\DiagnosisProfile.cs",
-              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Profiles\\DiagnosisProfile.cs",
-              "RelativeToolTip": "Profiles\\DiagnosisProfile.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAA5wBEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-07T16:08:22.856Z"
             }
           ]
         }

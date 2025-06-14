@@ -2,6 +2,7 @@
 using ClinicAPI.Data;
 using ClinicAPI.DTOs.Doctor;
 using ClinicAPI.Models;
+using ClinicAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicAPI.Controllers
@@ -10,66 +11,57 @@ namespace ClinicAPI.Controllers
     [ApiController]
     public class DoctorController : ControllerBase
     {
-        private readonly IMapper _mapper;
-        private readonly ClinicDbContext _context;
 
-        public DoctorController(ClinicDbContext context, IMapper mapper)
-        {
-            _context = context;
-            _mapper = mapper;
+        private readonly IDoctorService _doctorService;
+
+        public DoctorController(IDoctorService doctorService)
+        { 
+            _doctorService = doctorService;
         }
 
         [HttpGet]
         public ActionResult<List<DoctorReadDTO>> GetDoctors()
         {
-            var doctors = _context.Doctors.ToList();
-            var doctorsDTO = _mapper.Map<List<DoctorReadDTO>>(doctors);
-            return Ok(doctorsDTO);
-
+            var doctors = _doctorService.GetDoctors();
+            return Ok(doctors);
         }
+
+
         [HttpGet("{id}")]
         public ActionResult GetDoctorById(int id)
         {
-            var doctor = _context.Doctors.FirstOrDefault(d => d.Id == id);
-            if (doctor == null) return NotFound();
-            else
-            {
-                var dto = _mapper.Map<DoctorReadDTO>(doctor);
-                return Ok(dto);
-            }
+            var doctor = _doctorService.GetDoctorById(id);
+            if ( doctor == null)return NotFound();
+            return Ok(doctor);
+          
+           
         }
         [HttpPost]
         public ActionResult CreateDoctor(DoctorCreateDTO dto)
-        {                                
-
-            var doctor = _mapper.Map<Doctor>(dto);
-            _context.Doctors.Add(doctor);
-            _context.SaveChanges();
-            return CreatedAtAction(nameof(GetDoctorById),new {id= doctor.Id},_mapper.Map<DoctorReadDTO>(doctor));
+        {  
+            var created = _doctorService.CreateDoctor(dto);
+            return  CreatedAtAction( nameof(GetDoctorById), new {id = created.Id} 
+                , created);  
         }
+
+
+
         [HttpPut("{id}")]
         public ActionResult UpdateDoctor(int id , DoctorUpdateDTO dto)
         {
-              var doctor = _context.Doctors.FirstOrDefault(x => x.Id == id);
-            if (doctor == null) 
-            { 
-                return NotFound();
-            }
-                _mapper.Map(dto,doctor);
-                _context.SaveChanges();
-                return NoContent();
+            var updatedDoctor = _doctorService.UpdateDoctor(id, dto);
+            if (updatedDoctor) return NoContent();
+            return BadRequest("Invalid Doctor Id"); 
         }
+
+
         [HttpDelete("{id}")]
         public ActionResult DeleteDoctor(int id) {
-            var doctor = _context.Doctors.FirstOrDefault(x => x.Id == id);
-            if (doctor == null)
-            {
-                return NotFound();
-            }
-            _context.Doctors.Remove(doctor); 
-            _context.SaveChanges();
-            return NoContent();
-        
+            
+            var IsDeleted =_doctorService.DeleteDoctor(id);
+            if(IsDeleted) return NoContent();
+            return NotFound();
+
         }
 
     }

@@ -1,4 +1,6 @@
 using ClinicAPI.Data;
+using ClinicAPI.Services.Implementations;
+using ClinicAPI.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 namespace ClinicAPI
 {
@@ -12,15 +14,17 @@ namespace ClinicAPI
             // Add services to the container.
                                                                                           
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             //Connect with DbContext.
             builder.Services.AddDbContext<ClinicDbContext>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
             ));
-            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            builder.Services.AddScoped<IDoctorService, DoctorService>();
+            builder.Services.AddScoped<IClinicService, ClinicService>();
 
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
 

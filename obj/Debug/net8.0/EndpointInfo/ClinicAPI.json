@@ -412,7 +412,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -809,6 +810,10 @@
       "ClinicReadDTO": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
           "name": {
             "type": "string",
             "nullable": true
@@ -868,6 +873,10 @@
       "DoctorReadDTO": {
         "type": "object",
         "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
           "name": {
             "type": "string",
             "nullable": true
@@ -886,7 +895,7 @@
             "type": "string",
             "nullable": true
           },
-          "clinicId": {
+          "id": {
             "type": "integer",
             "format": "int32"
           }

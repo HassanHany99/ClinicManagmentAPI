@@ -11,11 +11,6 @@ namespace ClinicAPI.Profiles
             CreateMap<Doctor, DoctorReadDTO>();
             CreateMap<DoctorCreateDTO, Doctor>();
             CreateMap<DoctorUpdateDTO, Doctor>();
-
-        
-        
-        
-        
         }
     }
 }

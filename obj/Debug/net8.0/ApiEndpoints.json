@@ -121,7 +121,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.ClinicController",
-    "Method": "GetById",
+    "Method": "GetClinicById",
     "RelativePath": "api/Clinic/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -243,13 +243,13 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "ClinicAPI.DTOs.Diagnosis.UpdateDiagnosisDTO",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       },
       {
-        "Name": "id",
-        "Type": "",
+        "Name": "dto",
+        "Type": "ClinicAPI.DTOs.Diagnosis.UpdateDiagnosisDTO",
         "IsRequired": true
       }
     ],
