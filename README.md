@@ -68,6 +68,9 @@ Development is in **active progress**.
 🛡️ Authentication, error handling, and documentation to follow.
 
 ---
+## 🧠 Development Notes
+
+- [📋 TODO List](Notes/todo.md)
 
 ## 📌 Next Steps
 
