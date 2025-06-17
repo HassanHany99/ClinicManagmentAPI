@@ -1,37 +1,78 @@
-# Clinic Management API 🏥
+# 🏥 Clinic Management API
 
-This is a simple **Clinic Management System** built using **ASP.NET Core Web API** and **Entity Framework Core**.  
-It helps in managing clinics, doctors, patients, appointments, and diagnoses efficiently.
-
----
-
-## 🚀 Features
-
-- CRUD operations for:
-  - Doctors 👨‍⚕️
-  - Clinics 🏢
-  - Patients 👥
-  - Appointments 📅
-  - Diagnoses 💉
-- Entity relationships using **Fluent API**
-- DTOs & AutoMapper for clean and safe data transfer
-- Clean architecture for future scalability
+An ASP.NET Core Web API project for managing clinics, doctors, patients, diagnoses, and appointments — built using a clean, layered architecture with Entity Framework Core and AutoMapper.
 
 ---
 
-## 🛠️ Technologies Used
+## 🧠 Project Purpose
 
-- ASP.NET Core Web API (.NET 8)
-- Entity Framework Core
-- AutoMapper
-- SQL Server
-- LINQ
-- C#
+This project was built as part of a hands-on journey to master backend development using ASP.NET Core Web API and EF Core. The focus is on clean architecture, separation of concerns, and writing production-style code similar to what’s used in real-life company environments.
 
 ---
 
-## ⚙️ How to Run the Project
+## ✅ Features Implemented So Far
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/HassanHany99/ClinicManagmentAPI.git
+- 🔹 **Doctor Module**
+  - Full CRUD operations via `DoctorController`
+  - Business logic handled by `DoctorService`
+  - DTOs used for cleaner request/response models
+
+- 🔹 **Clinic Module**
+  - Full CRUD operations via `ClinicController`
+  - Includes navigation to related Doctors
+  - Business logic in `ClinicService` with AutoMapper mapping
+
+- 🔹 **Patient Module**
+  - Currently being implemented
+  - DTOs + Service Layer in progress
+
+- 🔹 **Diagnosis & Appointment Modules**
+  - Under development
+  - Each will have full CRUD + proper relational handling
+
+---
+
+## 🛠️ Tech Stack
+
+- **ASP.NET Core 8.0**
+- **Entity Framework Core**
+- **AutoMapper**
+- **SQL Server**
+- **Swagger (planned)**
+- **JWT Authentication (coming soon)**
+
+---
+
+## 🧱 Project Structure (Layered Architecture)
+
+ClinicAPI/
+│
+├── Controllers/ # API Controllers (Doctors, Clinics, etc.)
+├── Services/
+│ ├── Interfaces/ # Service interfaces (e.g., IDoctorService)
+│ └── Implementations/ # Actual business logic services
+├── DTOs/ # Request/Response Models (DoctorDTOs, ClinicDTOs)
+├── Models/ # Entity Models (Doctor, Clinic, etc.)
+├── Data/ # DbContext and EF configuration
+├── Profiles/ # AutoMapper profiles
+├── Notes/ # Contains todo.md, bugs.md, architecture.md
+└── Program.cs # App configuration and service registration
+
+---
+
+## 🔄 Work Progress
+
+Development is in **active progress**.  
+✅ Doctor & Clinic modules are fully functional.  
+🛠️ Currently working on: Patient, Diagnosis, and Appointment services.  
+🛡️ Authentication, error handling, and documentation to follow.
+
+---
+
+## 📌 Next Steps
+
+- Complete remaining modules (Patients, Appointments, Diagnoses)
+- Add Swagger for API testing and documentation
+- Add JWT Authentication for secure access
+- Improve validation and global error handling
+- Clean/refactor code for best practices and consistency
