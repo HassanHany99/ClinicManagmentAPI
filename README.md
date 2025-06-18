@@ -60,26 +60,7 @@ A clean, well-structured ASP.NET Core Web API for managing Clinics, Doctors, Pat
 
 ## 📁 Project Structure
 
-ClinicAPI/
-├── Controllers/
-├── DTOs/
-│ ├── Doctor/
-│ ├── Clinic/
-│ ├── Patient/
-│ ├── Appointment/
-│ └── Diagnosis/
-├── Models/
-├── Services/
-│ ├── Interfaces/
-│ └── Implementations/
-├── Data/
-├── Profiles/ (AutoMapper)
-├── Notes/
-│ ├── todo.md
-│ ├── bugs.md
-│ └── architecture.md
-└── Program.cs
-
+<pre> <code> ClinicAPI/ ├── Controllers/ ├── DTOs/ │ ├── Doctor/ │ ├── Clinic/ │ ├── Patient/ │ ├── Appointment/ │ └── Diagnosis/ ├── Models/ ├── Services/ │ ├── Interfaces/ │ └── Implementations/ ├── Data/ ├── Profiles/ ← (AutoMapper) ├── Notes/ │ ├── todo.md │ ├── bugs.md │ └── architecture.md └── Program.cs </code> </pre>
 ---
 
 🔜 Coming Next
