@@ -25,7 +25,8 @@ namespace ClinicAPI
             builder.Services.AddScoped<IDoctorService, DoctorService>();
             builder.Services.AddScoped<IClinicService, ClinicService>();
             builder.Services.AddScoped<IPatientService, PatientService>();
-            builder.Services.AddScoped<IAppointmentService,AppoinmentService>();
+            builder.Services.AddScoped<IAppointmentService,AppointmentService>();
+            builder.Services.AddScoped<IDiagnosisService, DiagnosisService>();
 
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

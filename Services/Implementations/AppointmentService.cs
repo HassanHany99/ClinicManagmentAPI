@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ClinicAPI.Services.Implementations
 {
-    public class AppoinmentService : IAppointmentService
+    public class AppointmentService : IAppointmentService
     {
         private readonly IMapper _mapper;
         private readonly ClinicDbContext _context;
-        public AppoinmentService(IMapper mapper, ClinicDbContext context)
+        public AppointmentService(IMapper mapper, ClinicDbContext context)
         {
             _mapper = mapper;
             _context = context;
@@ -44,7 +44,7 @@ namespace ClinicAPI.Services.Implementations
             return appointmentDTO;
         }
 
-        public AppointmentReadDTO? CrateAppointment(AppointmentCreateDTO dto)
+        public AppointmentReadDTO? CreateAppointment(AppointmentCreateDTO dto)
         {
             bool patientExists = _context.Patients.Any(p => p.Id == dto.PatientId);
             if (!patientExists)
@@ -69,9 +69,9 @@ namespace ClinicAPI.Services.Implementations
             return appRead;
         }
 
-        public bool UpdateAppointment(AppointmentUpdateDTO dto)
+        public bool UpdateAppointment( int id ,AppointmentUpdateDTO dto)
         {
-            var appointmentExist = _context.Appointments.FirstOrDefault(x => x.Id == dto.Id);
+            var appointmentExist = _context.Appointments.FirstOrDefault(x => x.Id == id);
 
             if (appointmentExist == null) return false;
 

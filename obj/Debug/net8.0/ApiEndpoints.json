@@ -21,7 +21,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.AppointmentController",
-    "Method": "CrateAppointment",
+    "Method": "CreateAppointment",
     "RelativePath": "api/Appointment",
     "HttpMethod": "POST",
     "IsController": true,
@@ -30,22 +30,6 @@
       {
         "Name": "dto",
         "Type": "ClinicAPI.DTOs.Appointment.AppointmentCreateDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ClinicAPI.Controllers.AppointmentController",
-    "Method": "UpdateAppointment",
-    "RelativePath": "api/Appointment",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "ClinicAPI.DTOs.Appointment.AppointmentUpdateDTO",
         "IsRequired": true
       }
     ],
@@ -62,6 +46,27 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicAPI.Controllers.AppointmentController",
+    "Method": "UpdateAppointment",
+    "RelativePath": "api/Appointment/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "ClinicAPI.DTOs.Appointment.AppointmentUpdateDTO",
         "IsRequired": true
       }
     ],
@@ -184,23 +189,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.DiagnosisController",
-    "Method": "AddDiagnosis",
-    "RelativePath": "api/Diagnosis",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "diagnosisDTO",
-        "Type": "ClinicAPI.DTOs.Diagnosis.CreateDiagnosisDTO",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ClinicAPI.Controllers.DiagnosisController",
-    "Method": "GetAllDiagnosis",
+    "Method": "GetAllDiagnosisrs",
     "RelativePath": "api/Diagnosis",
     "HttpMethod": "GET",
     "IsController": true,
@@ -217,6 +206,22 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "ClinicAPI.Controllers.DiagnosisController",
+    "Method": "AddDiagnosis",
+    "RelativePath": "api/Diagnosis",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "diagnosisDTO",
+        "Type": "ClinicAPI.DTOs.Diagnosis.CreateDiagnosisDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "ClinicAPI.Controllers.DiagnosisController",

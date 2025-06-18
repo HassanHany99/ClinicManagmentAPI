@@ -7,8 +7,8 @@ namespace ClinicAPI.Services.Interfaces
     {
         List<AppointmentReadDTO> GetAllAppointments();
         AppointmentReadDTO? GetAppointmentById(int id);
-        AppointmentReadDTO CrateAppointment(AppointmentCreateDTO dto);
-        bool UpdateAppointment(AppointmentUpdateDTO dto);
+        AppointmentReadDTO CreateAppointment(AppointmentCreateDTO dto);
+        bool UpdateAppointment(int id ,AppointmentUpdateDTO dto);
         bool DeleteAppointment(int id);
 
 

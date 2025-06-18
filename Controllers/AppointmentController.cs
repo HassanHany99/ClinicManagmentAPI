@@ -24,7 +24,7 @@ namespace ClinicAPI.Controllers
 
             var appointments = _appointmentService.GetAllAppointments();
             return appointments;
-           
+
         }
         [HttpGet("{id:int}")]
         public ActionResult GetAppointmentById(int id) {
@@ -36,21 +36,21 @@ namespace ClinicAPI.Controllers
             return Ok(app);
         }
         [HttpPost]
-        public ActionResult CrateAppointment(AppointmentCreateDTO dto) 
+        public ActionResult CreateAppointment(AppointmentCreateDTO dto)
         {
-            var appointment = _appointmentService.CrateAppointment(dto);
+            var appointment = _appointmentService.CreateAppointment(dto);
             if (appointment == null)
             {
                 return BadRequest("Invalid doctor or patient IDs");
             }
 
-            return CreatedAtAction(nameof(GetAppointmentById), new { id = appointment.Id },appointment);
+            return CreatedAtAction(nameof(GetAppointmentById), new { id = appointment.Id }, appointment);
         }
 
-        [HttpPut]
-        public ActionResult UpdateAppointment(AppointmentUpdateDTO dto ) {
+        [HttpPut("{id}")]
+        public ActionResult UpdateAppointment( int id ,AppointmentUpdateDTO dto ) {
 
-            var app = _appointmentService.UpdateAppointment(dto);
+            var app = _appointmentService.UpdateAppointment(id,dto);
 
             if (!app) return NotFound();
             
