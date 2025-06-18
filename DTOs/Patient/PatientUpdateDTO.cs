@@ -2,8 +2,10 @@
 {
     public class PatientUpdateDTO
     {
-        public string name { get; set; } 
+        public int Id { get; set; }
         public int DoctorId { get; set; }
+        public string Name { get; set; } 
+       
 
     }
 }

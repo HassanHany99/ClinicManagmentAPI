@@ -18,7 +18,7 @@ namespace ClinicAPI.Services.Implementations
         }
 
 
-        public List<DoctorReadDTO> GetDoctors() {
+        public List<DoctorReadDTO> GetAllDoctors() {
             var doctors = _mapper.Map<List<DoctorReadDTO>>(_context.Doctors.ToList());
             return doctors;
         }

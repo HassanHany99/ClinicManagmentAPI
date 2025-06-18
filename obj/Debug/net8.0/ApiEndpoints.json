@@ -1,7 +1,7 @@
 [
   {
     "ContainingType": "ClinicAPI.Controllers.AppointmentController",
-    "Method": "GetAppointments",
+    "Method": "GetAllAppointments",
     "RelativePath": "api/Appointment",
     "HttpMethod": "GET",
     "IsController": true,
@@ -273,7 +273,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.DoctorController",
-    "Method": "GetDoctors",
+    "Method": "GetAllDoctors",
     "RelativePath": "api/Doctor",
     "HttpMethod": "GET",
     "IsController": true,
@@ -368,7 +368,17 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[ClinicAPI.DTOs.Patient.PatientReadDTO, ClinicAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ClinicAPI.Controllers.PatientController",
@@ -388,6 +398,22 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.PatientController",
+    "Method": "UpdatePatient",
+    "RelativePath": "api/Patient",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ClinicAPI.DTOs.Patient.PatientUpdateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ClinicAPI.Controllers.PatientController",
     "Method": "GetPatientById",
     "RelativePath": "api/Patient/{id}",
     "HttpMethod": "GET",
@@ -397,27 +423,6 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ClinicAPI.Controllers.PatientController",
-    "Method": "UpdatePatient",
-    "RelativePath": "api/Patient/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "dto",
-        "Type": "ClinicAPI.DTOs.Patient.PatientUpdateDTO",
         "IsRequired": true
       }
     ],

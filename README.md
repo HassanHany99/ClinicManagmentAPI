@@ -23,12 +23,12 @@ This project was built as part of a hands-on journey to master backend developme
   - Business logic in `ClinicService` with AutoMapper mapping
 
 - 🔹 **Patient Module**
-  - Currently being implemented
+  -  implementeded
   - DTOs + Service Layer in progress
 
 - 🔹 **Diagnosis & Appointment Modules**
-  - Under development
-  - Each will have full CRUD + proper relational handling
+  - implemented
+  - Each have full CRUD + proper relational handling
 
 ---
 
@@ -63,15 +63,13 @@ ClinicAPI/
 ## 🔄 Work Progress
 
 Development is in **active progress**.  
-✅ Doctor & Clinic modules are fully functional.  
-🛠️ Currently working on: Patient, Diagnosis, and Appointment services.  
+✅ All modules are fully functional.   
 🛡️ Authentication, error handling, and documentation to follow.
 
 ---
 
 ## 📌 Next Steps
 
-- Complete remaining modules (Patients, Appointments, Diagnoses)
 - Add Swagger for API testing and documentation
 - Add JWT Authentication for secure access
 - Improve validation and global error handling

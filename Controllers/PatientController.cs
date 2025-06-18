@@ -2,6 +2,7 @@
 using ClinicAPI.Data;
 using ClinicAPI.DTOs.Patient;
 using ClinicAPI.Models;
+using ClinicAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,71 +13,56 @@ namespace ClinicAPI.Controllers
     [ApiController]
     public class PatientController : ControllerBase
     {
-        private readonly IMapper _mapper;
-        private readonly ClinicDbContext _context;
-        public PatientController(IMapper mapper, ClinicDbContext context)
+        private readonly IPatientService _patientService;
+        public PatientController(IPatientService patientService)
         {
-            _mapper = mapper;
-            _context = context;
+            _patientService = patientService;
         }
 
         [HttpGet]
-        public ActionResult GetAllPatients()
+        public ActionResult<List<PatientReadDTO>> GetAllPatients()
         {
-            var dto = _mapper.Map<List<PatientReadDTO>>(_context.Patients.Include(p=> p.Doctor));
-
-            return Ok(dto);
-
+           return Ok(_patientService.GetPatients());
         }
-        [HttpPost()]
+       
+        [HttpGet("{id}")]
+        public ActionResult GetPatientById(int id)
+        {
+            var patient = _patientService.GetPatientById(id);
+
+            if (patient == null) return NotFound();
+
+            return Ok(patient);
+        }
+        [HttpPost]
         public ActionResult AddPatient(PatientCreateDTO record)
         {
-         var patient = _mapper.Map<Patient>(record);
-            _context.Patients.Add(patient);
-            _context.SaveChanges();
-            var dto = _mapper.Map<PatientReadDTO>(patient);
-            return CreatedAtAction(nameof(GetPatientById), new { id = patient.Id }, dto);
+            var patient = _patientService.AddPatient(record);
+
+            if (patient == null) return BadRequest("Invalid Doctor ID");
+
+            return CreatedAtAction(nameof(GetPatientById), new { id = patient.Id }, patient);
 
         }
-        [HttpGet("{id}")]
-        public ActionResult GetPatientById(int id) { 
-        var patient = _context.Patients.AsNoTracking().FirstOrDefault(x => x.Id == id);
-            if (patient == null)
-            {
-                return NotFound();
-            }
-            var dto = _mapper.Map<PatientReadDTO>(_context.Patients
-                .Include
-                (p => p.Doctor).FirstOrDefault(x => x.Id == id));
-             return Ok(dto);
-        }
 
-        [HttpPut("{id}")]
-        public ActionResult UpdatePatient(int id, PatientUpdateDTO dto) {
-           var patient = _context.Patients.FirstOrDefault(x => x.Id == id);
-            if (patient == null) 
-            { 
-                return NotFound();
-            }
-            _mapper.Map(dto, patient);
-            _context.SaveChanges();
-            return NoContent();    
+        [HttpPut]
+        public ActionResult UpdatePatient( PatientUpdateDTO dto)
+        {
+            var patient = _patientService.UpdatePatient(dto);
+            if (!patient) return NotFound();
+            return NoContent();
+
         }
 
         [HttpDelete("{id}")]
-        public ActionResult DeletePatient(int id) { 
-        var patient = _context.Patients.FirstOrDefault(x => x.Id == id);
-            if (patient == null)
-            {
-                return NotFound();
-            }
-            _context.Patients.Remove(patient);
-            _context.SaveChanges();
+        public ActionResult DeletePatient(int id) 
+        { 
+            var patient = _patientService.DeletePatient(id);
+            
+            if (!patient) return NotFound();
+
             return NoContent();
-        
         }
-
-
 
     }
 }

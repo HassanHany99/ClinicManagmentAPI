@@ -20,9 +20,9 @@ namespace ClinicAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<DoctorReadDTO>> GetDoctors()
+        public ActionResult<List<DoctorReadDTO>> GetAllDoctors()
         {
-            var doctors = _doctorService.GetDoctors();
+            var doctors = _doctorService.GetAllDoctors();
             return Ok(doctors);
         }
 

@@ -8,7 +8,7 @@ namespace ClinicAPI.Services.Interfaces
          List<ClinicReadDTO> GetClinics();
          ClinicReadDTO? GetClinicById(int id);
          ClinicReadDTO CreateClinic(ClinicCreateDTO dto);
-        bool UpdateClinic(int id, ClinicUpdateDTO dto);
+         bool UpdateClinic(int id, ClinicUpdateDTO dto);
          bool DeleteClinic(int id);
     }
 }

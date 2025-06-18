@@ -1,4 +1,5 @@
 using ClinicAPI.Data;
+using ClinicAPI.Models;
 using ClinicAPI.Services.Implementations;
 using ClinicAPI.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +24,8 @@ namespace ClinicAPI
             ));
             builder.Services.AddScoped<IDoctorService, DoctorService>();
             builder.Services.AddScoped<IClinicService, ClinicService>();
+            builder.Services.AddScoped<IPatientService, PatientService>();
+            builder.Services.AddScoped<IAppointmentService,AppoinmentService>();
 
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
