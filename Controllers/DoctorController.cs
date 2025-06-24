@@ -20,9 +20,9 @@ namespace ClinicAPI.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<DoctorReadDTO>> GetAllDoctors()
+        public async Task<ActionResult<IEnumerable<DoctorReadDTO>>> GetAllAsync()
         {
-            var doctors = _doctorService.GetAllDoctors();
+            var doctors =  await _doctorService.GetAllAsync();
             return Ok(doctors);
         }
 

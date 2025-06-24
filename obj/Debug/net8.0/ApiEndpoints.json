@@ -189,7 +189,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.DiagnosisController",
-    "Method": "GetAllDiagnosisrs",
+    "Method": "GetAllDiagnoses",
     "RelativePath": "api/Diagnosis",
     "HttpMethod": "GET",
     "IsController": true,
@@ -286,7 +286,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ClinicAPI.DTOs.Doctor.DoctorReadDTO, ClinicAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ClinicAPI.DTOs.Doctor.DoctorReadDTO, ClinicAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

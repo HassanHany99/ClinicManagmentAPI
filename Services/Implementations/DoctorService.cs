@@ -2,6 +2,7 @@
 using ClinicAPI.Data;
 using ClinicAPI.DTOs.Doctor;
 using ClinicAPI.Models;
+using ClinicAPI.Repositories;
 using ClinicAPI.Services.Interfaces;
 
 namespace ClinicAPI.Services.Implementations
@@ -10,17 +11,20 @@ namespace ClinicAPI.Services.Implementations
     {
        private readonly IMapper _mapper;
        private readonly ClinicDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-       public DoctorService(IMapper mapper , ClinicDbContext context)
+       public DoctorService(IMapper mapper , ClinicDbContext context , IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
             _context = context;
+            _unitOfWork = unitOfWork;
         }
 
 
-        public List<DoctorReadDTO> GetAllDoctors() {
-            var doctors = _mapper.Map<List<DoctorReadDTO>>(_context.Doctors.ToList());
-            return doctors;
+        public async Task<IEnumerable<DoctorReadDTO>> GetAllAsync() {
+
+        var doctors =await _unitOfWork.Doctors.GetAllAsync();
+            return _mapper.Map<IEnumerable<DoctorReadDTO>>(doctors);
         }
 
         public DoctorReadDTO? GetDoctorById(int id)
