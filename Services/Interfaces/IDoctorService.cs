@@ -5,9 +5,9 @@ public interface IDoctorService
 {
 
     Task<IEnumerable<DoctorReadDTO>> GetAllAsync();
-    DoctorReadDTO GetDoctorById(int id);
-    DoctorReadDTO CreateDoctor(DoctorCreateDTO dto);
-    bool UpdateDoctor(int id, DoctorUpdateDTO dto);
-    bool DeleteDoctor(int id);
+    Task<DoctorReadDTO?> GetByIdAsync(int id);
+    Task<DoctorReadDTO> AddAsync(DoctorCreateDTO dto);
+    Task<bool> UpdateAsync(int id, DoctorUpdateDTO dto);
+    Task<bool> DeleteAsync(int id);
 
 }

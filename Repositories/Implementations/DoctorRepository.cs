@@ -25,5 +25,29 @@ namespace ClinicAPI.Repositories.Implementations
             return doctors;
 
         }
+
+      public async Task<Doctor?> GetByIdAsync(int id) 
+        {
+            return await _context.Doctors.FirstOrDefaultAsync(x => x.Id==id);
+        }
+
+         public async Task<Doctor?> AddAsync(Doctor doctor)
+        {
+          var clinicExist =  await _context.Clinics.AnyAsync(x=> x.Id ==  doctor.ClinicId);
+            if (!clinicExist) return null;
+            await _context.Doctors.AddAsync(doctor);
+            return doctor;
+        }
+
+
+        public async Task<bool> DeleteAsync(int id)
+        {
+            var doctor = await _context.Doctors.FirstOrDefaultAsync(x=> x.Id==id);
+            if (doctor is null) return false;
+             _context.Doctors.Remove(doctor);
+            return true;
+        }
+
+
     }
 }

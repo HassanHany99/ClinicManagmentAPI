@@ -1,13 +1,13 @@
 ﻿using ClinicAPI.Models;
+using ClinicAPI.DTOs.Doctor;
 
 namespace ClinicAPI.Repositories.Interfaces
 {
     public interface IDoctorRepository
     {
         Task<IEnumerable<Doctor>> GetAllAsync();
-     //   Task<DoctorReadDTO> GetDoctorById(int id);
-      //  Task<DoctorReadDTO> AddDoctor(DoctorCreateDTO dto);
-       // bool UpdateDoctor(int id, DoctorUpdateDTO dto);
-      //  bool DeleteDoctor(int id);
+        Task<Doctor> GetByIdAsync(int id);
+        Task<Doctor> AddAsync(Doctor doctor);
+       Task<bool> DeleteAsync(int id);
     }
 }

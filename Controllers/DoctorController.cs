@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Threading.Tasks;
+using AutoMapper;
 using ClinicAPI.Data;
 using ClinicAPI.DTOs.Doctor;
 using ClinicAPI.Models;
@@ -28,42 +29,37 @@ namespace ClinicAPI.Controllers
 
 
         [HttpGet("{id}")]
-        public ActionResult GetDoctorById(int id)
+        public async Task<ActionResult<DoctorReadDTO>> GetByIdAsync(int id)
         {
-            var doctor = _doctorService.GetDoctorById(id);
-            if ( doctor == null)return NotFound();
-            return Ok(doctor);
-          
-           
-        }
-        [HttpPost]
-        public ActionResult CreateDoctor(DoctorCreateDTO dto)
-        {  
-            var created = _doctorService.CreateDoctor(dto);
-            return  CreatedAtAction( nameof(GetDoctorById), new {id = created.Id} 
-                , created);  
+              var doctor=  await _doctorService.GetByIdAsync(id);
+               if (doctor is null) return NotFound();
+                return Ok(doctor);
         }
 
+        [HttpPost]
+        public async Task<ActionResult<DoctorReadDTO>> AddAsync(DoctorCreateDTO dto)
+        {
+            var doctor = await _doctorService.AddAsync(dto);
+            if (doctor is null) return BadRequest("Invali clinic ID");
+            return Ok(doctor);
+        }
+     
 
 
         [HttpPut("{id}")]
-        public ActionResult UpdateDoctor(int id , DoctorUpdateDTO dto)
+        public async Task<ActionResult> UpdateAsync(int id , DoctorUpdateDTO dto)
         {
-            var updatedDoctor = _doctorService.UpdateDoctor(id, dto);
+            var updatedDoctor = await _doctorService.UpdateAsync(id, dto);
             if (updatedDoctor) return NoContent();
             return BadRequest("Invalid Doctor Id"); 
         }
 
-
         [HttpDelete("{id}")]
-        public ActionResult DeleteDoctor(int id) {
-            
-            var IsDeleted =_doctorService.DeleteDoctor(id);
+        public async Task<ActionResult> DeleteAsync(int id) {
+            var IsDeleted = await _doctorService.DeleteAsync(id);
             if(IsDeleted) return NoContent();
             return NotFound();
-
         }
 
     }
     }
-

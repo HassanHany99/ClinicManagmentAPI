@@ -278,7 +278,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.DoctorController",
-    "Method": "GetAllDoctors",
+    "Method": "GetAllAsync",
     "RelativePath": "api/Doctor",
     "HttpMethod": "GET",
     "IsController": true,
@@ -298,7 +298,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.DoctorController",
-    "Method": "CreateDoctor",
+    "Method": "AddAsync",
     "RelativePath": "api/Doctor",
     "HttpMethod": "POST",
     "IsController": true,
@@ -310,11 +310,21 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "ClinicAPI.DTOs.Doctor.DoctorReadDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ClinicAPI.Controllers.DoctorController",
-    "Method": "GetDoctorById",
+    "Method": "GetByIdAsync",
     "RelativePath": "api/Doctor/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -326,11 +336,21 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "ClinicAPI.DTOs.Doctor.DoctorReadDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ClinicAPI.Controllers.DoctorController",
-    "Method": "UpdateDoctor",
+    "Method": "UpdateAsync",
     "RelativePath": "api/Doctor/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -351,7 +371,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.DoctorController",
-    "Method": "DeleteDoctor",
+    "Method": "DeleteAsync",
     "RelativePath": "api/Doctor/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
