@@ -4,10 +4,10 @@ using ClinicAPI.DTOs.Doctor;
 public interface IDoctorService
 {
 
-    List<DoctorReadDTO> GetAllDoctors();
-    DoctorReadDTO GetDoctorById(int id);
-    DoctorReadDTO CreateDoctor(DoctorCreateDTO dto);
-    bool UpdateDoctor(int id, DoctorUpdateDTO dto);
-    bool DeleteDoctor(int id);
+    Task<IEnumerable<DoctorReadDTO>> GetAllAsync();
+    Task<DoctorReadDTO?> GetByIdAsync(int id);
+    Task<DoctorReadDTO> AddAsync(DoctorCreateDTO dto);
+    Task<bool> UpdateAsync(int id, DoctorUpdateDTO dto);
+    Task<bool> DeleteAsync(int id);
 
 }

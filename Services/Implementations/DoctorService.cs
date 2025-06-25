@@ -1,7 +1,9 @@
-﻿using AutoMapper;
+﻿using System.Threading.Tasks;
+using AutoMapper;
 using ClinicAPI.Data;
 using ClinicAPI.DTOs.Doctor;
 using ClinicAPI.Models;
+using ClinicAPI.Repositories;
 using ClinicAPI.Services.Interfaces;
 
 namespace ClinicAPI.Services.Implementations
@@ -10,54 +12,61 @@ namespace ClinicAPI.Services.Implementations
     {
        private readonly IMapper _mapper;
        private readonly ClinicDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-       public DoctorService(IMapper mapper , ClinicDbContext context)
+       public DoctorService(IMapper mapper , ClinicDbContext context , IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
             _context = context;
+            _unitOfWork = unitOfWork;
         }
 
 
-        public List<DoctorReadDTO> GetAllDoctors() {
-            var doctors = _mapper.Map<List<DoctorReadDTO>>(_context.Doctors.ToList());
-            return doctors;
+        public async Task<IEnumerable<DoctorReadDTO>> GetAllAsync() {
+
+        var doctors =await _unitOfWork.Doctors.GetAllAsync();
+            return _mapper.Map<IEnumerable<DoctorReadDTO>>(doctors);
         }
 
-        public DoctorReadDTO? GetDoctorById(int id)
+        public async Task<DoctorReadDTO?> GetByIdAsync(int id)
         {
-            var doctor = _context.Doctors.FirstOrDefault(d => d.Id == id);
-            if (doctor == null) return null;
-            return _mapper.Map<DoctorReadDTO>(doctor);
-            
+               var doctor = await _unitOfWork.Doctors.GetByIdAsync(id);
+              if (doctor is null) return null;
+              return _mapper.Map<DoctorReadDTO>(doctor);  
         }
 
-       public DoctorReadDTO CreateDoctor(DoctorCreateDTO dto)
+        public async Task<DoctorReadDTO?> AddAsync(DoctorCreateDTO dto)
         {
             var doctor = _mapper.Map<Doctor>(dto);
-            _context.Doctors.Add(doctor);
-            _context.SaveChanges();
-            var doctorRead = _mapper.Map<DoctorReadDTO>(doctor);
-            return doctorRead;
+            var cratedDoctor = await _unitOfWork.Doctors.AddAsync(doctor);
+
+            if (cratedDoctor is null) return null;
+
+            await _unitOfWork.CompleteAsync();
+            return _mapper.Map<DoctorReadDTO>(cratedDoctor);
+ 
         }
 
 
-       public bool UpdateDoctor(int Id, DoctorUpdateDTO dto)
+       public async Task<bool> UpdateAsync(int id,DoctorUpdateDTO dto)
         {
-            var doctor = _context.Doctors.FirstOrDefault(x => x.Id == Id);
-            if (doctor == null) return false;
-            _mapper.Map(dto, doctor);
-            _context.SaveChanges();
-            return true;
+            var doctor = await _unitOfWork.Doctors.GetByIdAsync(id);
 
+            if (doctor is null) return false;
+
+           _mapper.Map(dto, doctor);
+           
+            await _unitOfWork.CompleteAsync();
+            return true;
+  
         }
-         public bool DeleteDoctor(int id)
+         public async Task<bool> DeleteAsync(int id)
         {
-            var doctor =_context.Doctors.FirstOrDefault( x => x.Id == id);
-            if (doctor == null) return false;
-            _context.Doctors.Remove(doctor);
-            _context.SaveChanges();
+            var doctorDeleted = await _unitOfWork.Doctors.DeleteAsync(id);
+            if (!doctorDeleted) return false;
+            await _unitOfWork.CompleteAsync();
             return true;
-
+ 
         }
 
     }
