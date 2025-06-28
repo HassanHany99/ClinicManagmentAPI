@@ -564,6 +564,7 @@
         "tags": [
           "Doctor"
         ],
+        "operationId": "GetDoctorByIdAsync",
         "parameters": [
           {
             "name": "id",
@@ -722,7 +723,24 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientReadDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientReadDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientReadDTO"
+                }
+              }
+            }
           }
         }
       },
@@ -761,6 +779,7 @@
         "tags": [
           "Patient"
         ],
+        "operationId": "GetPatientByIdAsync",
         "parameters": [
           {
             "name": "id",
@@ -774,7 +793,24 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientReadDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientReadDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PatientReadDTO"
+                }
+              }
+            }
           }
         }
       },

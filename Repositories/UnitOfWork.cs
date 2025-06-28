@@ -7,11 +7,13 @@ namespace ClinicAPI.Repositories
     {
         private readonly ClinicDbContext _context;
         public IDoctorRepository Doctors { get; }
+        public IPatientRepository Patients { get; }
 
-        public UnitOfWork(ClinicDbContext context, IDoctorRepository doctorsRepository)
+        public UnitOfWork(ClinicDbContext context, IDoctorRepository doctorsRepository , IPatientRepository patientRepository)
         {
             _context = context;
             Doctors =  doctorsRepository;
+            Patients = patientRepository;
         }
 
         public async Task<int> CompleteAsync()

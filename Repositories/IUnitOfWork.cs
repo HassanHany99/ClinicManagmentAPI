@@ -5,6 +5,7 @@ namespace ClinicAPI.Repositories
     public interface IUnitOfWork
     {
         IDoctorRepository Doctors { get; }
+        IPatientRepository Patients {  get; }
         Task<int> CompleteAsync();
     }
 }

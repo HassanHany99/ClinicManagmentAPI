@@ -2,6 +2,7 @@
 using ClinicAPI.Data;
 using ClinicAPI.DTOs.Patient;
 using ClinicAPI.Models;
+using ClinicAPI.Repositories;
 using ClinicAPI.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,72 +11,76 @@ namespace ClinicAPI.Services.Implementations
     public class PatientService : IPatientService
     {
         private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly ClinicDbContext _context;
 
-        public PatientService(IMapper mapper, ClinicDbContext context)
+        public PatientService(IMapper mapper, ClinicDbContext context , IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
             _context = context;
-        }
-        public List<PatientReadDTO> GetPatients()
-        {
-            var patients = _mapper.Map<List<PatientReadDTO>>(_context.Patients
-                .AsNoTracking()
-                .Include(p => p.Doctor).ToList());
-            return patients;
+          
         }
 
-        public PatientReadDTO? GetPatientById(int id)
+        public async Task<IEnumerable<PatientReadDTO>> GetAllAsync()
         {
+            var patients = await _unitOfWork.Patients.GetAllAsync();
+            
+            return _mapper.Map<IEnumerable<PatientReadDTO>>(patients);
+        }
 
-            var patient = _context.Patients
-                .AsNoTracking()
-                .Include(p => p.Doctor)
-                .FirstOrDefault(p => p.Id == id);
-
+        public async Task<PatientReadDTO?> GetByIdAsync(int id)
+        {
+            var patient = await _unitOfWork.Patients.GetByIdAsync(id);
             if (patient == null) return null;
 
-            var patientRead = _mapper.Map<PatientReadDTO>(patient);
-            return patientRead;
+          return  _mapper.Map<PatientReadDTO>(patient);
+
         }
 
-        public PatientReadDTO? AddPatient(PatientCreateDTO patientDTO)
+        public async Task<PatientReadDTO?> AddAsync(PatientCreateDTO dto)
         {
-            var doctorExist = _context.Doctors.Any(x => x.Id == patientDTO.DoctorId);
-            if (!doctorExist) return null;
+            var doctor = await _unitOfWork.Doctors.GetByIdAsync(dto.DoctorId);
+            if (doctor is null) return null;
 
-            var patient = _mapper.Map<Patient>(patientDTO);
-            _context.Patients.Add(patient);
-            _context.SaveChanges();
-            var readPatient =_mapper.Map<PatientReadDTO>(_context.Patients
+            var patient = _mapper.Map<Patient>(dto);
+
+          var addedPatient =  await _unitOfWork.Patients.AddAsync(patient);
+           await _unitOfWork.CompleteAsync();
+
+            var mapped = await _context.Patients
                 .AsNoTracking()
                 .Include(p => p.Doctor)
-                .FirstOrDefault(x => x.Id ==patient.Id));
-            return  readPatient;
+                .FirstOrDefaultAsync(x => x.Id == addedPatient.Id);
+            var readPatient = _mapper.Map<PatientReadDTO>(mapped);
+
+            return readPatient;
+            
         }
 
-        public bool UpdatePatient(PatientUpdateDTO patientDTO)
+        public async Task<bool> UpdateAsync(PatientUpdateDTO dto)
         {
-            var doctorExist = _context.Doctors.Any(x => x.Id == patientDTO.DoctorId);
-                if (!doctorExist) return false;
-            var patientExist = _context.Patients.Any(x => x.Id == patientDTO.Id);
-            if (!patientExist) return false;
+            var patient = await _unitOfWork.Patients.GetByIdAsync(dto.Id);
+            if (patient == null) return false;
 
-            var patient = _mapper.Map<Patient>(patientDTO);
+            var doctor = await _unitOfWork.Doctors.GetByIdAsync(dto.DoctorId);
+            if (doctor is null) return false;
+ 
+            _mapper.Map(dto, patient);
+            await _unitOfWork.CompleteAsync();
 
-            _context.Patients.Update(patient);
-            _context.SaveChanges();
             return true;
 
         }
 
-        public bool DeletePatient(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
-            var patient = _context.Patients.FirstOrDefault(x=> x.Id == id);
+            var patientDeleted = await _unitOfWork.Patients.DeleteAsync(id);
 
-            if (patient == null) return false;
-            _context.Patients.Remove(patient);
-            _context.SaveChanges();
+            if ( !patientDeleted ) return false;
+
+           await _unitOfWork.CompleteAsync();
+            
             return true;
 
         }

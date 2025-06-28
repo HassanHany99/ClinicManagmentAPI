@@ -346,7 +346,8 @@
         ],
         "StatusCode": 200
       }
-    ]
+    ],
+    "EndpointName": "GetDoctorByIdAsync"
   },
   {
     "ContainingType": "ClinicAPI.Controllers.DoctorController",
@@ -387,7 +388,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.PatientController",
-    "Method": "GetAllPatients",
+    "Method": "GetAllAsync",
     "RelativePath": "api/Patient",
     "HttpMethod": "GET",
     "IsController": true,
@@ -395,7 +396,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ClinicAPI.DTOs.Patient.PatientReadDTO, ClinicAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ClinicAPI.DTOs.Patient.PatientReadDTO, ClinicAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -407,23 +408,33 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.PatientController",
-    "Method": "AddPatient",
+    "Method": "AddAsync",
     "RelativePath": "api/Patient",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "record",
+        "Name": "dto",
         "Type": "ClinicAPI.DTOs.Patient.PatientCreateDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "ClinicAPI.DTOs.Patient.PatientReadDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ClinicAPI.Controllers.PatientController",
-    "Method": "UpdatePatient",
+    "Method": "UpdateAsync",
     "RelativePath": "api/Patient",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -439,7 +450,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.PatientController",
-    "Method": "GetPatientById",
+    "Method": "GetByIdAsync",
     "RelativePath": "api/Patient/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -451,11 +462,22 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "ClinicAPI.DTOs.Patient.PatientReadDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetPatientByIdAsync"
   },
   {
     "ContainingType": "ClinicAPI.Controllers.PatientController",
-    "Method": "DeletePatient",
+    "Method": "DeleteAsync",
     "RelativePath": "api/Patient/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
