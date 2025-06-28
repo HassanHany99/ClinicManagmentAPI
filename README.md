@@ -1,76 +1,89 @@
-# 🏥 Clinic Management API
+# Clinic Management System API 🏥
 
-A clean, well-structured ASP.NET Core Web API for managing Clinics, Doctors, Patients, Appointments, and Diagnoses — built step by step following real-world backend architecture practices.
-
----
-
-## 📈 Project Evolution (How it was built step-by-step)
-
-> This project wasn't written all at once — it was built progressively, like real projects in companies:
-
-| Step | What was done |
-|------|----------------|
-| ✅ 1 | Built initial `DoctorController` and `ClinicController` directly using DbContext |
-| ✅ 2 | Introduced Service Layer (`IDoctorService`, `IClinicService`) and applied AutoMapper & DTOs |
-| ✅ 3 | Refactored code to use Clean Architecture pattern (Controller → Service → Data) |
-| ✅ 4 | Completed full CRUD for `Patients` using DTOs and service structure |
-| ✅ 5 | Built `Appointment` module with relationships to `Doctor` and `Patient` (with validation) |
-| ✅ 6 | Implemented `Diagnosis` with smart checks (no duplicate per appointment) |
-| ✅ 7 | Organized all logic into separate layers with clear structure and no tight coupling |
+A RESTful Web API for managing doctors, patients, clinics, appointments, and diagnoses — built with ASP.NET Core Web API using a clean and scalable architecture.
 
 ---
 
-## 🚀 Features
+## ✅ What's Done
 
-### ✅ Clinic Module
-- Create, Read, Update, Delete Clinics
-- Returns related Doctors per clinic
-
-### ✅ Doctor Module
-- Full CRUD with clean mapping
-- Service layer handles all logic
-
-### ✅ Patient Module
-- Full CRUD
-- Connected to appointments
-
-### ✅ Appointment Module
-- Related to both Doctors and Patients
-- Full validation before creation
-- Returns all linked data (Doctor, Patient, Diagnosis)
-
-### ✅ Diagnosis Module
-- One-to-one relation with Appointment
-- Prevents duplicate Diagnoses for same Appointment
+- ✅ Used layered architecture: Controllers ➜ Services ➜ Repositories ➜ Unit of Work
+- ✅ Applied Entity Framework Core + Code First + Fluent API
+- ✅ Built full CRUD for:
+  - 🧑‍⚕️ Doctor
+  - 👤 Patient
+- ✅ Used AutoMapper for clean DTO mapping
+- ✅ Implemented async/await for non-blocking database calls
+- ✅ Organized project with Clean Code & SOLID Principles
+- 🛠️ Currently working on JWT Authentication and Authorization
 
 ---
 
-## 🛠️ Tech Stack
+## 👨‍⚕️ Modules Progress
 
-- ASP.NET Core 8.0
+| Module        | Service Layer | Repository Layer | Status    |
+|---------------|---------------|------------------|-----------|
+| Doctor        | ✅ Done        | ✅ Done           | ✅ Complete |
+| Patient       | ✅ Done        | ✅ Done           | ✅ Complete |
+| Clinic        | ✅ Done        | ❌ Not yet        | 🟡 In Progress |
+| Appointment   | ✅ Done        | ❌ Not yet        | 🟡 In Progress |
+| Diagnosis     | ✅ Done        | ❌ Not yet        | 🟡 In Progress |
+
+---
+
+## 🧩 What’s Next
+
+- Implement **Repository Layer** for:
+  - Clinic
+  - Appointment
+  - Diagnosis
+- Add full **Validation** for input DTOs
+- Finalize **JWT Authentication & Role-based Authorization**
+- Build **Global Exception Handling**
+- Setup **Logging & Error Tracking**
+
+---
+
+## ⚙️ Tech Stack
+
+- ASP.NET Core Web API (.NET 8)
 - Entity Framework Core
 - SQL Server
 - AutoMapper
+- LINQ
+- Repository + Unit of Work Pattern
+- JWT Authentication (in progress)
+- C#
 - RESTful API Design
-- Clean Architecture + Service Layer
-- Swagger (coming soon)
-- JWT Authentication (coming soon)
 
 ---
 
-## 📁 Project Structure
+## 🧠 Architecture
 
-<pre> <code> ClinicAPI/ ├── Controllers/ ├── DTOs/ │ ├── Doctor/ │ ├── Clinic/ │ ├── Patient/ │ ├── Appointment/ │ └── Diagnosis/ ├── Models/ ├── Services/ │ ├── Interfaces/ │ └── Implementations/ ├── Data/ ├── Profiles/ ← (AutoMapper) ├── Notes/ │ ├── todo.md │ ├── bugs.md │ └── architecture.md └── Program.cs </code> </pre>
+- `Controllers` → Handle HTTP requests
+- `Services` → Contain business logic
+- `Repositories` → Communicate with DB
+- `Unit of Work` → Manage data transactions
+- `DTOs` → Decouple layers
+- `AutoMapper` → Clean object mapping
+
 ---
 
-🔜 Coming Next
-- JWT Authentication (login, token handling, authorization)
+## 🔐 Security
 
- -Swagger UI for API testing
+JWT Authentication is currently under implementation to secure endpoints for real-world deployment.
 
- - Model validation and global error handling
+---
 
- - Logging & Diagnostics (Serilog or built-in logging)
+## 🚀 Project Status
 
- - Unit Testing for service layer
+The core modules are in place and being improved.  
+This project is continuously being expanded and refactored to match **production-level standards**.
 
+---
+
+## 📌 Notes
+
+This project is being built from scratch with the goal of mastering .NET backend development  
+and preparing for real-world job-ready deployment.
+
+Stay tuned for upcoming updates!
