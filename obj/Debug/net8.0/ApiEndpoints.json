@@ -98,7 +98,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ClinicAPI.DTOs.Clinic.ClinicReadDTO, ClinicAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ClinicAPI.DTOs.Clinic.ClinicReadDTO, ClinicAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -110,7 +110,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.ClinicController",
-    "Method": "CreateClinic",
+    "Method": "AddAsync",
     "RelativePath": "api/Clinic",
     "HttpMethod": "POST",
     "IsController": true,
@@ -122,11 +122,21 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "ClinicAPI.DTOs.Clinic.ClinicReadDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ClinicAPI.Controllers.ClinicController",
-    "Method": "GetClinicById",
+    "Method": "GetByIdAsync",
     "RelativePath": "api/Clinic/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -148,11 +158,12 @@
         ],
         "StatusCode": 200
       }
-    ]
+    ],
+    "EndpointName": "GetClinicById"
   },
   {
     "ContainingType": "ClinicAPI.Controllers.ClinicController",
-    "Method": "UpdateClinic",
+    "Method": "UpdateAsync",
     "RelativePath": "api/Clinic/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -173,7 +184,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.ClinicController",
-    "Method": "DeleteClinic",
+    "Method": "DeleteAsync",
     "RelativePath": "api/Clinic/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,

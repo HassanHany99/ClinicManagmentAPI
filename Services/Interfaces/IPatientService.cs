@@ -10,7 +10,5 @@ namespace ClinicAPI.Services.Interfaces
         Task<bool> UpdateAsync(PatientUpdateDTO patientDTO);
         Task<bool> DeleteAsync(int id);
 
-
-
     }
 }

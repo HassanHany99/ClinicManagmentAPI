@@ -1,14 +1,13 @@
 ﻿using ClinicAPI.DTOs.Clinic;
-using ClinicAPI.DTOs.Doctor;
 
 namespace ClinicAPI.Services.Interfaces
 {
-    public interface IClinicService 
+    public interface IClinicService
     {
-         List<ClinicReadDTO> GetClinics();
-         ClinicReadDTO? GetClinicById(int id);
-         ClinicReadDTO CreateClinic(ClinicCreateDTO dto);
-         bool UpdateClinic(int id, ClinicUpdateDTO dto);
-         bool DeleteClinic(int id);
+        Task<IEnumerable<ClinicReadDTO>> GetAllAsync();
+        Task<ClinicReadDTO?> GetByIdAsync(int id);
+        Task<ClinicReadDTO?> AddAsync(ClinicCreateDTO dto);
+        Task<bool> UpdateAsync(int id, ClinicUpdateDTO dto);
+        Task<bool> DeleteAsync(int id);
     }
 }

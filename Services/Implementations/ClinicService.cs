@@ -1,74 +1,72 @@
 ﻿using AutoMapper;
-using ClinicAPI.Data;
 using ClinicAPI.DTOs.Clinic;
 using ClinicAPI.Models;
+using ClinicAPI.Repositories;
 using ClinicAPI.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace ClinicAPI.Services.Implementations
 {
     public class ClinicService : IClinicService
     {
-       private readonly IMapper _mapper;
-       private readonly ClinicDbContext _context;
+        private readonly IMapper _mapper;
+        private readonly IUnitOfWork _unitOfWork;
 
-       public ClinicService(IMapper mapper , ClinicDbContext context)
+        public ClinicService(IMapper mapper, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
-            _context = context;
+            _unitOfWork = unitOfWork;
         }
 
-        public List<ClinicReadDTO> GetClinics()
+        public async Task<IEnumerable<ClinicReadDTO>> GetAllAsync()
         {
-            var clinics = _context.Clinics
-                .AsNoTracking()
-                .Include(c => c.Doctors).ToList();
-            
-            return _mapper.Map<List<ClinicReadDTO>>(clinics);
+            var clinics = await _unitOfWork.Clinics.GetAllAsync();
+
+            var result = _mapper.Map<IEnumerable<ClinicReadDTO>>(clinics);
+            return result;
+
+
 
         }
 
-        public ClinicReadDTO? GetClinicById(int id)
+        public async Task<ClinicReadDTO?> GetByIdAsync(int id)
         {
-            var existClinic = _context.Clinics
-                .AsNoTracking().Include( c => c.Doctors)
-                .FirstOrDefault(c => c.Id == id);
+            var clinic = await _unitOfWork.Clinics.GetByIdAsync(id);
 
-             if (existClinic == null) return null;
-
-            return _mapper.Map<ClinicReadDTO>(existClinic);
-        }
-        public ClinicReadDTO CreateClinic (ClinicCreateDTO dto)
-        {
-            var clinic =_mapper.Map<Clinic>(dto);
-
-            _context.Clinics.Add(clinic);
-            _context.SaveChanges();
+            if (clinic == null) return null;
 
             return _mapper.Map<ClinicReadDTO>(clinic);
         }
 
-       public bool UpdateClinic(int id, ClinicUpdateDTO dto)
+        public async Task<ClinicReadDTO?> AddAsync(ClinicCreateDTO dto)
         {
-            var existClinic=_context.Clinics.FirstOrDefault(c => c.Id == id);
+            var clinic = _mapper.Map<Clinic>(dto);
 
-            if(existClinic == null) return false;
+            await _unitOfWork.Clinics.AddAsync(clinic);
+            await _unitOfWork.CompleteAsync();
 
-            _mapper.Map(dto,existClinic);
-            _context.SaveChanges();
+            return _mapper.Map<ClinicReadDTO>(clinic);
+        }
+
+        public async Task<bool> UpdateAsync(int id, ClinicUpdateDTO dto)
+        {
+            var existClinic = await _unitOfWork.Clinics.GetByIdAsync(id);
+            if (existClinic == null) return false;
+
+            _mapper.Map(dto, existClinic);
+            await _unitOfWork.CompleteAsync();
             return true;
         }
 
-        public bool DeleteClinic(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
-            var existClinic = _context.Clinics.FirstOrDefault(c => c.Id == id);
+            var existClinic = await _unitOfWork.Clinics.GetByIdAsync(id);
 
-            if ( existClinic == null) return false;
+            if (existClinic == null) return false;
 
-            _context.Clinics.Remove(existClinic);
-            _context.SaveChanges();
+            _unitOfWork.Clinics.Delete(existClinic);
+            await _unitOfWork.CompleteAsync();
 
-            return true ;
+            return true;
 
         }
 

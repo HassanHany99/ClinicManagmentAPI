@@ -218,7 +218,24 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClinicReadDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClinicReadDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClinicReadDTO"
+                }
+              }
+            }
           }
         }
       }
@@ -228,6 +245,7 @@
         "tags": [
           "Clinic"
         ],
+        "operationId": "GetClinicById",
         "parameters": [
           {
             "name": "id",

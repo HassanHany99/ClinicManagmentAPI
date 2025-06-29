@@ -6,6 +6,7 @@ using ClinicAPI.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 using ClinicAPI.Services.Interfaces;
+using System.Threading.Tasks;
 
 
 namespace ClinicAPI.Controllers
@@ -20,44 +21,55 @@ namespace ClinicAPI.Controllers
         {
             _clinicService = clinicService;
         }
+
         // APIs
         [HttpGet]
-        public ActionResult<List<ClinicReadDTO>> GetClinics()
+        public async Task<ActionResult<IEnumerable<ClinicReadDTO>>> GetClinics()
         {
-            return Ok(_clinicService.GetClinics());
+            var clinics = await _clinicService.GetAllAsync();
+            return Ok(clinics);
         }
 
 
-        [HttpGet("{id}")]
-        public ActionResult<ClinicReadDTO> GetClinicById(int id) {
-            var existClinic = _clinicService.GetClinicById(id);
-            if (existClinic == null) return NotFound();
-            return Ok(existClinic);
+        [HttpGet(("{id}"), Name = "GetClinicById")]
+       public async Task<ActionResult<ClinicReadDTO>> GetByIdAsync(int id)
+        {
+            var clinic = await _clinicService.GetByIdAsync(id);
+            if (clinic == null) return NotFound();
+            return Ok(clinic);
+
         }
+
+
+        [HttpPost]
+        public async Task<ActionResult<ClinicReadDTO>> AddAsync(ClinicCreateDTO dto)
+        {
+            var addedClinic = await _clinicService.AddAsync(dto);
+
+            return CreatedAtRoute("GetClinicById", new { id = addedClinic.Id }, addedClinic);
+        }
+
 
         [HttpPut("{id}")]
-        public ActionResult UpdateClinic( int id, ClinicUpdateDTO clinicDTO)
+        public async Task<ActionResult> UpdateAsync( int id, ClinicUpdateDTO clinicDTO)
         {
-            var clinic = _clinicService.UpdateClinic(id, clinicDTO);
+            var clinic = await _clinicService.UpdateAsync(id, clinicDTO);
             if (!clinic) return NotFound();
             return NoContent();
  
         }
 
-        [HttpPost]
-        public ActionResult CreateClinic(ClinicCreateDTO dto)
-        {
-            var clinic = _clinicService.CreateClinic(dto);
-            return CreatedAtAction(nameof(GetClinicById), new { id = clinic.Id },clinic);
-        }
-
+  
         [HttpDelete("{id}")]
-        public ActionResult DeleteClinic(int id) 
+        public async Task<ActionResult> DeleteAsync(int id)  
         { 
-            var clinic = _clinicService.DeleteClinic(id);
+          var clinic = await _clinicService.DeleteAsync(id);
             if (!clinic) return NotFound();
             return NoContent();
+    
+        
         }
+       
 
     }
 }

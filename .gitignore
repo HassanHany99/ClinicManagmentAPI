@@ -1,0 +1,31 @@
+# Build artifacts
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+
+# VS Code
+.vscode/
+
+# ASP.NET Core configuration
+appsettings.json
+appsettings.Development.json
+
+# Secrets (if you use secrets.json or .env)
+secrets.json
+.env
+
+# Logs
+*.log
+
+# SQLite or local DB files
+*.db
+
+# Rider
+.idea/
+
+# Others
+*.pidb
+*.sln.docstates
