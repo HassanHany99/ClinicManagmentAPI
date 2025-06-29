@@ -11,6 +11,7 @@ A RESTful Web API for managing doctors, patients, clinics, appointments, and dia
 - ✅ Built full CRUD for:
   - 🧑‍⚕️ Doctor
   - 👤 Patient
+  - -Clinics
 - ✅ Used AutoMapper for clean DTO mapping
 - ✅ Implemented async/await for non-blocking database calls
 - ✅ Organized project with Clean Code & SOLID Principles
@@ -24,7 +25,7 @@ A RESTful Web API for managing doctors, patients, clinics, appointments, and dia
 |---------------|---------------|------------------|-----------|
 | Doctor        | ✅ Done        | ✅ Done           | ✅ Complete |
 | Patient       | ✅ Done        | ✅ Done           | ✅ Complete |
-| Clinic        | ✅ Done        | ❌ Not yet        | 🟡 In Progress |
+| Clinic        | ✅ Done        | ✅ Done           | ✅ Complete |
 | Appointment   | ✅ Done        | ❌ Not yet        | 🟡 In Progress |
 | Diagnosis     | ✅ Done        | ❌ Not yet        | 🟡 In Progress |
 
@@ -33,7 +34,6 @@ A RESTful Web API for managing doctors, patients, clinics, appointments, and dia
 ## 🧩 What’s Next
 
 - Implement **Repository Layer** for:
-  - Clinic
   - Appointment
   - Diagnosis
 - Add full **Validation** for input DTOs
