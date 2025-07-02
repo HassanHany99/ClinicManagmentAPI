@@ -7,6 +7,8 @@ namespace ClinicAPI.Repositories
         IDoctorRepository Doctors { get; }
         IPatientRepository Patients {  get; }
         IClinicRepository Clinics { get; }
+        IAppointmentRepository Appointments { get; }
+        IDiagnosisRepository Diagnosises { get; }
         Task<int> CompleteAsync();
     }
 }

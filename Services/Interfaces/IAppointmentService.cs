@@ -1,15 +1,14 @@
 ﻿using ClinicAPI.DTOs.Appointment;
-using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicAPI.Services.Interfaces
 {
     public interface IAppointmentService
     {
-        List<AppointmentReadDTO> GetAllAppointments();
-        AppointmentReadDTO? GetAppointmentById(int id);
-        AppointmentReadDTO CreateAppointment(AppointmentCreateDTO dto);
-        bool UpdateAppointment(int id ,AppointmentUpdateDTO dto);
-        bool DeleteAppointment(int id);
+        Task<IEnumerable<AppointmentReadDTO>> GetAllAsync();
+        Task<AppointmentReadDTO?> GetByIdAsync(int id);
+        Task<AppointmentReadDTO?> AddAsync(AppointmentCreateDTO dto);
+        Task<bool> UpdateAsync(int id, AppointmentUpdateDTO dto);
+        Task<bool> DeleteAsync(int id);
 
 
 

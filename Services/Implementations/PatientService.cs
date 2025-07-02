@@ -12,14 +12,12 @@ namespace ClinicAPI.Services.Implementations
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ClinicDbContext _context;
+        
 
-        public PatientService(IMapper mapper, ClinicDbContext context , IUnitOfWork unitOfWork)
+        public PatientService(IMapper mapper,  IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
-            _context = context;
-          
         }
 
         public async Task<IEnumerable<PatientReadDTO>> GetAllAsync()
@@ -48,10 +46,7 @@ namespace ClinicAPI.Services.Implementations
           var addedPatient =  await _unitOfWork.Patients.AddAsync(patient);
            await _unitOfWork.CompleteAsync();
 
-            var mapped = await _context.Patients
-                .AsNoTracking()
-                .Include(p => p.Doctor)
-                .FirstOrDefaultAsync(x => x.Id == addedPatient.Id);
+            var mapped = await _unitOfWork.Patients.GetByIdAsync(addedPatient.Id);
             var readPatient = _mapper.Map<PatientReadDTO>(mapped);
 
             return readPatient;

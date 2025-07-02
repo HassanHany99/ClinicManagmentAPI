@@ -1,94 +1,94 @@
 ﻿using AutoMapper;
-using ClinicAPI.Data;
 using ClinicAPI.DTOs.Appointment;
 using ClinicAPI.Models;
+using ClinicAPI.Repositories;
 using ClinicAPI.Services.Interfaces;
-using Microsoft.EntityFrameworkCore;
 
 namespace ClinicAPI.Services.Implementations
 {
     public class AppointmentService : IAppointmentService
     {
         private readonly IMapper _mapper;
-        private readonly ClinicDbContext _context;
-        public AppointmentService(IMapper mapper, ClinicDbContext context)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public AppointmentService(IMapper mapper, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
-            _context = context;
+
+            _unitOfWork = unitOfWork;
         }
 
-        public List<AppointmentReadDTO> GetAllAppointments()
-        {
-            var appsList = _context.Appointments.AsNoTracking()
-                .Include(a => a.Doctor)
-                .Include(a => a.Patient)
-                .Include(a => a.Diagnosis)
-                .ToList();
-            var appointmentsDTO = _mapper.Map<List<AppointmentReadDTO>>(appsList);
 
-            return appointmentsDTO;
+        public async Task<IEnumerable<AppointmentReadDTO>> GetAllAsync()
+        {
+            var appoinments = await _unitOfWork.Appointments.GetAllAsync();
+
+            return _mapper.Map<IEnumerable<AppointmentReadDTO>>(appoinments);
+
         }
 
-        public AppointmentReadDTO? GetAppointmentById(int id)
+        public async Task<AppointmentReadDTO?> GetByIdAsync(int id)
         {
-            var app = _context.Appointments
-                .AsNoTracking()
-                .Include(a => a.Doctor)
-                .Include(a => a.Patient)
-                .Include(a => a.Diagnosis)
-                .FirstOrDefault(x => x.Id == id);
+            var appointment = await _unitOfWork.Appointments.GetByIdAsync(id);
 
-            if (app == null) return null;
+            if (appointment == null) return null;
 
-            var appointmentDTO = _mapper.Map<AppointmentReadDTO>(app);
-            return appointmentDTO;
+            return _mapper.Map<AppointmentReadDTO>(appointment);
+
+
+
         }
 
-        public AppointmentReadDTO? CreateAppointment(AppointmentCreateDTO dto)
+        public async Task<AppointmentReadDTO?> AddAsync(AppointmentCreateDTO dto)
         {
-            bool patientExists = _context.Patients.Any(p => p.Id == dto.PatientId);
-            if (!patientExists)
+            var patientExist = await _unitOfWork.Patients.GetByIdAsync(dto.PatientId);
+            if (patientExist is null)
             {
                 return null;
             }
-            bool doctorExists = _context.Doctors.Any(d => d.Id == dto.DoctorId);
-            if (!doctorExists)
+
+            var doctorExist = await _unitOfWork.Doctors.GetByIdAsync(dto.DoctorId);
+            if (doctorExist is null)
             {
                 return null;
             }
             var appointment = _mapper.Map<Appointment>(dto);
 
-            _context.Appointments.Add(appointment);
-            _context.SaveChanges();
+            var appAdded = await _unitOfWork.Appointments.AddAsync(appointment);
 
-            var appRead = _mapper.Map<AppointmentReadDTO>(_context.Appointments
-                 .Include(a => a.Doctor)
-                 .Include(a => a.Patient)
-                 .Include(a => a.Diagnosis)
-                 .FirstOrDefault(x => x.Id == appointment.Id));
+            await _unitOfWork.CompleteAsync();
+
+            var fullApp = await _unitOfWork.Appointments.GetByIdAsync(appointment.Id);
+
+
+            var appRead = _mapper.Map<AppointmentReadDTO>(fullApp);
             return appRead;
         }
 
-        public bool UpdateAppointment( int id ,AppointmentUpdateDTO dto)
+        public async Task<bool> UpdateAsync(int id, AppointmentUpdateDTO dto)
         {
-            var appointmentExist = _context.Appointments.FirstOrDefault(x => x.Id == id);
+            var appointmentExist = await _unitOfWork.Appointments.GetByIdAsync(id);
 
             if (appointmentExist == null) return false;
 
-            _mapper.Map(dto, appointmentExist);
-            _context.SaveChanges();
+            appointmentExist.AppointmentDate = dto.AppointmentDate;
+            // Or using :   _mapper.Map(dto, appointmentExist);
+            await _unitOfWork.CompleteAsync();
+
             return true;
         }
 
-        public bool DeleteAppointment(int id)
+        public async Task<bool> DeleteAsync(int id)
         {
-            var appointmentExist = _context.Appointments.FirstOrDefault(x => x.Id == id);
+            var appointment = await _unitOfWork.Appointments.GetByIdAsync(id);
 
-            if (appointmentExist == null) return false;
+            if (appointment == null) return false;
 
-            _context.Appointments.Remove(appointmentExist);
-            _context.SaveChanges();
+            await _unitOfWork.Appointments.DeleteAsync(appointment);
+            await _unitOfWork.CompleteAsync();
             return true;
+
+
         }
 
     }

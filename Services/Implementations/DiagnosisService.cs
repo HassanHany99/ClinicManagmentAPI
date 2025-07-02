@@ -2,9 +2,8 @@
 using ClinicAPI.Data;
 using ClinicAPI.DTOs.Diagnosis;
 using ClinicAPI.Models;
+using ClinicAPI.Repositories;
 using ClinicAPI.Services.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace ClinicAPI.Services.Implementations
 {
@@ -12,85 +11,78 @@ namespace ClinicAPI.Services.Implementations
 
     {
         private readonly IMapper _mapper;
-        private readonly ClinicDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public DiagnosisService(IMapper mapper, ClinicDbContext context)
+        public DiagnosisService(IMapper mapper, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
-            _context = context;
+            _unitOfWork = unitOfWork;
         }
-        public List<ReadDiagnosisDTO> GetAllDiagnoses()
+        public async Task<IEnumerable<ReadDiagnosisDTO>> GetAllAsync()
         {
-            var diagnosises= _context.Diagnosis
-                .AsNoTracking()
-                .Include(d => d.Appointment.Doctor)
-                .Include(p => p.Appointment.Patient)
-                .Include(a => a.Appointment)
-                .ToList();
+            var diagnosises = await _unitOfWork.Diagnosises.GetAllAsync();
 
-            var diagnosisesRead = _mapper.Map<List<ReadDiagnosisDTO>>(diagnosises);
+            return _mapper.Map<IEnumerable<ReadDiagnosisDTO>>(diagnosises);
 
-            return diagnosisesRead;
         }
 
-        public ReadDiagnosisDTO? GetDiagnosisById(int id)
-        { 
-            var diagnosis = _context.Diagnosis.FirstOrDefault(d => d.Id == id);
-
-            if (diagnosis == null) return null;
-
-            var diagnosisRead = _mapper.Map<ReadDiagnosisDTO>(
-                 _context.Diagnosis
-                .AsNoTracking()
-                .Include(d => d.Appointment.Doctor)
-                .Include(p => p.Appointment.Patient)
-                .Include(a => a.Appointment)
-                .FirstOrDefault(x => x.Id == id));
-
-            return diagnosisRead;
-        }
-
-        public ReadDiagnosisDTO? AddDiagnosis(CreateDiagnosisDTO diagnosisDTO)
+        public async Task<ReadDiagnosisDTO?> GetByIdAsync(int id)
         {
-            var isAPPExist = _context.Appointments.Include(a=>a.Diagnosis).FirstOrDefault(x => x.Id == diagnosisDTO.AppointmentId);
-            if (isAPPExist == null) return null;
+            var diagnosis = await _unitOfWork.Diagnosises.GetByIdAsync(id);
 
-            if (isAPPExist.Diagnosis != null && isAPPExist.Diagnosis.Description != null)
+            if (diagnosis is null) return null;
+
+            return _mapper.Map<ReadDiagnosisDTO>(diagnosis);
+
+        }
+
+
+        public async Task<ReadDiagnosisDTO?> AddAsync(CreateDiagnosisDTO dto)
+        {
+            var appExists = await _unitOfWork.Appointments.GetByIdAsync(dto.AppointmentId);
+            if (appExists == null) return null;
+
+            if (appExists.Diagnosis != null && appExists.Diagnosis.Description != null)
             {
                 return null;
             }
-            var diagnosis = _mapper.Map<Diagnosis>(diagnosisDTO);
+            var diagnosis = _mapper.Map<Diagnosis>(dto);
+            await _unitOfWork.Diagnosises.AddAsync(diagnosis);
+            await _unitOfWork.CompleteAsync();
 
-            _context.Diagnosis.Add(diagnosis);
-            _context.SaveChanges();
-            
-            var diagnosisRead=_mapper.Map<ReadDiagnosisDTO>(_context.Diagnosis
-                .AsNoTracking()
-                .Include(d => d.Appointment.Doctor)
-                .Include(p => p.Appointment.Patient)
-                .Include(a => a.Appointment)
-                .FirstOrDefault(x => x.Id == diagnosis.Id));
+            var readDiagnosis = await _unitOfWork.Diagnosises.GetByIdAsync(diagnosis.Id);
+
+            var diagnosisRead = _mapper.Map<ReadDiagnosisDTO>(readDiagnosis);
+
             return diagnosisRead;
 
         }
-        public bool UpdateDiagnosis(int id, UpdateDiagnosisDTO dto)
-        {
-            var diagnosisExist = _context.Diagnosis.FirstOrDefault(x => x.Id == id);
-            if (diagnosisExist == null) return false;
 
-            _mapper.Map(dto, diagnosisExist);
-            _context.SaveChanges();
+
+        public async Task<bool> UpdateAsync(int id , UpdateDiagnosisDTO dto)
+        {
+            var diagnosis = await _unitOfWork.Diagnosises.GetByIdAsync(id);
+            if (diagnosis == null) return false;
+
+            _mapper.Map(dto, diagnosis);
+
+            await _unitOfWork.CompleteAsync();
+ 
             return true;
         }
 
-        public bool DeleteDiagnosis(int id)
+       public async Task<bool> DeleteAsync(int id)
         {
-            var diagnosisExist = _context.Diagnosis.FirstOrDefault(x => x.Id == id);
-            if (diagnosisExist == null) return false;
+            var diagnosis = await _unitOfWork.Diagnosises.GetByIdAsync(id);
 
-            _context.Diagnosis.Remove(diagnosisExist);
-            _context.SaveChanges();  
+            if (diagnosis == null) return false;
+
+            await _unitOfWork.Diagnosises.DeleteAsync(diagnosis);
+
+            await _unitOfWork.CompleteAsync();
+
             return true;
+
 
         }
 

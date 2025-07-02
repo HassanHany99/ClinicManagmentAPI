@@ -1,67 +1,67 @@
-﻿using AutoMapper;
-using ClinicAPI.Data;
-using ClinicAPI.DTOs.Diagnosis;
-using ClinicAPI.Models;
+﻿using ClinicAPI.DTOs.Diagnosis;
 using ClinicAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace ClinicAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DiagnosisController  : ControllerBase 
+    public class DiagnosisController : ControllerBase
     {
         private readonly IDiagnosisService _diagnosisService;
-        public DiagnosisController( IDiagnosisService diagnosisService) 
+        public DiagnosisController(IDiagnosisService diagnosisService)
         {
             _diagnosisService = diagnosisService;
         }
 
         [HttpGet]
-        public ActionResult<List<ReadDiagnosisDTO>> GetAllDiagnoses()
+        public async Task<ActionResult<IEnumerable<ReadDiagnosisDTO>>> GetAllAsync()
         {
-            var diagnosises = _diagnosisService.GetAllDiagnoses();
+            var diagnosises = await _diagnosisService.GetAllAsync();
             return Ok(diagnosises);
+
         }
-        [HttpGet("{id}")]
-        public ActionResult GetDiagnosisById(int id)
+
+
+        [HttpGet(("{id}"), Name = "GetDiagnosisById")]
+        public async Task<ActionResult<ReadDiagnosisDTO>> GetByIdAsync(int id)
         {
-            var diagnosis = _diagnosisService.GetDiagnosisById(id);
+            var diagnosis = await _diagnosisService.GetByIdAsync(id);
 
             if (diagnosis == null) return NotFound();
 
             return Ok(diagnosis);
-
         }
+
 
         [HttpPost]
-        public ActionResult AddDiagnosis(CreateDiagnosisDTO diagnosisDTO)
+        public async Task<ActionResult<ReadDiagnosisDTO>> AddAsync(CreateDiagnosisDTO dto)
         {
-            var diagnosis = _diagnosisService.AddDiagnosis(diagnosisDTO);
+            var diagnosis = await _diagnosisService.AddAsync(dto);
             if (diagnosis == null)
-            { 
+            {
                 return BadRequest("Invalid Appointment Id Or duplicated Description");
-              }
-            return CreatedAtAction(nameof(GetDiagnosisById),new {id = diagnosis.Id},diagnosis);
-    
-        }
-        
-        [HttpPut("{id}")]
-        public ActionResult UpdateDiagnosis(int id ,UpdateDiagnosisDTO dto )
-        {
-            var diagnosis = _diagnosisService.UpdateDiagnosis(id,dto);
+            }
+            return CreatedAtRoute("GetDiagnosisById", new { id = diagnosis.Id }, diagnosis);
 
-            if (!diagnosis) return NotFound();
+        }
+
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateAsync(int id, UpdateDiagnosisDTO dto)
+        {
+            var diagnosis = await _diagnosisService.UpdateAsync(id, dto);
+
+            if ( !diagnosis ) return NotFound();
 
             return NoContent();
-          
+
         }
 
         [HttpDelete("{id}")]
-        public ActionResult DeleteDiagnosis(int id)
+        public async Task<ActionResult> DeleteAsync(int id)
         {
-            var diagnosis = _diagnosisService.DeleteDiagnosis(id);
+            var diagnosis = await _diagnosisService.DeleteAsync(id);
             if (!diagnosis) return NotFound();
             return NoContent();
 

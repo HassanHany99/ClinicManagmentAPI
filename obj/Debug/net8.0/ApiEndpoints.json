@@ -9,7 +9,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ClinicAPI.DTOs.Appointment.AppointmentReadDTO, ClinicAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ClinicAPI.DTOs.Appointment.AppointmentReadDTO, ClinicAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -21,7 +21,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.AppointmentController",
-    "Method": "CreateAppointment",
+    "Method": "AddAsync",
     "RelativePath": "api/Appointment",
     "HttpMethod": "POST",
     "IsController": true,
@@ -33,11 +33,21 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "ClinicAPI.DTOs.Appointment.AppointmentReadDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ClinicAPI.Controllers.AppointmentController",
-    "Method": "GetAppointmentById",
+    "Method": "GetByIdAsync",
     "RelativePath": "api/Appointment/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -49,11 +59,22 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "ClinicAPI.DTOs.Appointment.AppointmentReadDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetAppointmentById"
   },
   {
     "ContainingType": "ClinicAPI.Controllers.AppointmentController",
-    "Method": "UpdateAppointment",
+    "Method": "UpdateAsync",
     "RelativePath": "api/Appointment/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -74,7 +95,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.AppointmentController",
-    "Method": "DeleteAppointment",
+    "Method": "DeleteAsync",
     "RelativePath": "api/Appointment/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -200,7 +221,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.DiagnosisController",
-    "Method": "GetAllDiagnoses",
+    "Method": "GetAllAsync",
     "RelativePath": "api/Diagnosis",
     "HttpMethod": "GET",
     "IsController": true,
@@ -208,7 +229,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[ClinicAPI.DTOs.Diagnosis.ReadDiagnosisDTO, ClinicAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ClinicAPI.DTOs.Diagnosis.ReadDiagnosisDTO, ClinicAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -220,23 +241,33 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.DiagnosisController",
-    "Method": "AddDiagnosis",
+    "Method": "AddAsync",
     "RelativePath": "api/Diagnosis",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "diagnosisDTO",
+        "Name": "dto",
         "Type": "ClinicAPI.DTOs.Diagnosis.CreateDiagnosisDTO",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "ClinicAPI.DTOs.Diagnosis.ReadDiagnosisDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ClinicAPI.Controllers.DiagnosisController",
-    "Method": "GetDiagnosisById",
+    "Method": "GetByIdAsync",
     "RelativePath": "api/Diagnosis/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -248,11 +279,22 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "ClinicAPI.DTOs.Diagnosis.ReadDiagnosisDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetDiagnosisById"
   },
   {
     "ContainingType": "ClinicAPI.Controllers.DiagnosisController",
-    "Method": "UpdateDiagnosis",
+    "Method": "UpdateAsync",
     "RelativePath": "api/Diagnosis/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -273,7 +315,7 @@
   },
   {
     "ContainingType": "ClinicAPI.Controllers.DiagnosisController",
-    "Method": "DeleteDiagnosis",
+    "Method": "DeleteAsync",
     "RelativePath": "api/Diagnosis/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,

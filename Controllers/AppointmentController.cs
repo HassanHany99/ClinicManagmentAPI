@@ -1,11 +1,6 @@
-﻿using System.Net.WebSockets;
-using AutoMapper;
-using ClinicAPI.Data;
-using ClinicAPI.DTOs.Appointment;
-using ClinicAPI.Models;
+﻿using ClinicAPI.DTOs.Appointment;
 using ClinicAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace ClinicAPI.Controllers
 {
@@ -14,61 +9,71 @@ namespace ClinicAPI.Controllers
     public class AppointmentController : ControllerBase
     {
         private readonly IAppointmentService _appointmentService;
+
+
         public AppointmentController(IAppointmentService appointmentService)
         {
             _appointmentService = appointmentService;
         }
 
         [HttpGet]
-        public ActionResult<List<AppointmentReadDTO>> GetAllAppointments() {
-
-            var appointments = _appointmentService.GetAllAppointments();
-            return appointments;
-
-        }
-        [HttpGet("{id:int}")]
-        public ActionResult GetAppointmentById(int id) {
-            var app = _appointmentService.GetAppointmentById(id);
-            if (app == null)
-            {
-                return NotFound();
-            }
-            return Ok(app);
-        }
-        [HttpPost]
-        public ActionResult CreateAppointment(AppointmentCreateDTO dto)
+        public async Task<ActionResult<IEnumerable<AppointmentReadDTO>>> GetAllAppointments()
         {
-            var appointment = _appointmentService.CreateAppointment(dto);
+
+            var appointments = await _appointmentService.GetAllAsync();
+            return Ok(appointments);
+
+
+        }
+
+
+        [HttpGet(("{id:int}"), Name = "GetAppointmentById")]
+        public async Task<ActionResult<AppointmentReadDTO>> GetByIdAsync(int id)
+        {
+            var appointment = await _appointmentService.GetByIdAsync(id);
+
+            if (appointment == null) return NotFound();
+
+            return Ok(appointment);
+
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult<AppointmentReadDTO>> AddAsync(AppointmentCreateDTO dto)
+        {
+            var appointment = await _appointmentService.AddAsync(dto);
             if (appointment == null)
             {
                 return BadRequest("Invalid doctor or patient IDs");
             }
 
-            return CreatedAtAction(nameof(GetAppointmentById), new { id = appointment.Id }, appointment);
+            return CreatedAtRoute("GetAppointmentById", new { id = appointment.Id }, appointment);
         }
+
 
         [HttpPut("{id}")]
-        public ActionResult UpdateAppointment( int id ,AppointmentUpdateDTO dto ) {
-
-            var app = _appointmentService.UpdateAppointment(id,dto);
-
-            if (!app) return NotFound();
-            
-            return NoContent(); 
+        public async Task<ActionResult> UpdateAsync(int id, AppointmentUpdateDTO dto)
+        {
+            var appointment = await _appointmentService.UpdateAsync(id, dto);
+            if (!appointment) return NotFound();
+            return NoContent();
         }
 
-        [HttpDelete("{id}")]
-        public ActionResult DeleteAppointment(int id)
-        {
-            var appointment = _appointmentService.DeleteAppointment(id);    
 
-            if (appointment == null) 
+
+        [HttpDelete("{id}")]
+        public async  Task<ActionResult> DeleteAsync(int id)
+        {
+            var appointment = await _appointmentService.DeleteAsync(id);
+
+            if (!appointment)
             {
                 return NotFound();
             }
-            return NoContent();
 
+            return NoContent();
         }
 
-}
+    }
 }
