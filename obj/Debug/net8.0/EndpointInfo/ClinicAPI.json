@@ -563,6 +563,37 @@
         }
       }
     },
+    "/api/Doctor/test-validation": {
+      "post": {
+        "tags": [
+          "Doctor"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DoctorCreateDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DoctorCreateDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DoctorCreateDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Doctor": {
       "get": {
         "tags": [
@@ -928,6 +959,9 @@
   "components": {
     "schemas": {
       "AppointmentCreateDTO": {
+        "required": [
+          "appointmentDate"
+        ],
         "type": "object",
         "properties": {
           "doctorId": {
@@ -982,11 +1016,14 @@
         "additionalProperties": false
       },
       "ClinicCreateDTO": {
+        "required": [
+          "name"
+        ],
         "type": "object",
         "properties": {
           "name": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -1037,17 +1074,22 @@
         "additionalProperties": false
       },
       "DoctorCreateDTO": {
+        "required": [
+          "name"
+        ],
         "type": "object",
         "properties": {
           "name": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "speciality": {
             "type": "string",
             "nullable": true
           },
           "clinicId": {
+            "maximum": 50,
+            "minimum": 1,
             "type": "integer",
             "format": "int32"
           }

@@ -440,6 +440,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ClinicAPI.Controllers.DoctorController",
+    "Method": "TestValidation",
+    "RelativePath": "api/Doctor/test-validation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "ClinicAPI.DTOs.Doctor.DoctorCreateDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ClinicAPI.Controllers.PatientController",
     "Method": "GetAllAsync",
     "RelativePath": "api/Patient",

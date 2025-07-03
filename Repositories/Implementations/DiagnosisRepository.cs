@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using ClinicAPI.Data;
+﻿using ClinicAPI.Data;
 using ClinicAPI.Models;
 using ClinicAPI.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -9,13 +8,10 @@ namespace ClinicAPI.Repositories.Implementations
     public class DiagnosisRepository : IDiagnosisRepository
 
     {
-
-        private readonly IMapper _mapper;
         private readonly ClinicDbContext _context;
 
-        public DiagnosisRepository(ClinicDbContext context, IMapper mapper)
+        public DiagnosisRepository(ClinicDbContext context)
         {
-            _mapper = mapper;
             _context = context;
         }
         public async Task<IEnumerable<Diagnosis>> GetAllAsync()
@@ -35,9 +31,9 @@ namespace ClinicAPI.Repositories.Implementations
                   .Include(d => d.Appointment.Doctor)
                   .Include(d => d.Appointment.Patient)
                   .Include(d => d.Appointment)
-                  .FirstOrDefaultAsync(x=> x.Id ==id );
-            
-            if (diagnosis is null ) return null;
+                  .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (diagnosis is null) return null;
 
             return diagnosis;
         }
@@ -48,14 +44,12 @@ namespace ClinicAPI.Repositories.Implementations
             return diagnosis;
         }
 
-        public async Task<bool>  DeleteAsync(Diagnosis diagnosis)
+        public async Task<bool> DeleteAsync(Diagnosis diagnosis)
         {
             _context.Diagnosis.Remove(diagnosis);
             return true;
 
         }
-
-
 
     }
 }

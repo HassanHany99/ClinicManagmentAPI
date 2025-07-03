@@ -26,7 +26,6 @@ namespace ClinicAPI.Controllers
 
         }
 
-
         [HttpGet(("{id:int}"), Name = "GetAppointmentById")]
         public async Task<ActionResult<AppointmentReadDTO>> GetByIdAsync(int id)
         {

@@ -1,72 +1,67 @@
-using System.Text.Json.Serialization;
 using ClinicAPI.Data;
+using ClinicAPI.Filters;
+using ClinicAPI.Middleware;
 using ClinicAPI.Repositories;
-using ClinicAPI.Repositories.Implementations;
-using ClinicAPI.Repositories.Interfaces;
 using ClinicAPI.Services.Implementations;
 using ClinicAPI.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-namespace ClinicAPI
+using System.Text.Json.Serialization;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Controllers + Filters
+builder.Services.AddControllers(options =>
 {
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
-            var builder = WebApplication.CreateBuilder(args);
+    options.Filters.Add<ValidateModelAttribute>();
+})
 
+.AddJsonOptions(x =>
+{
+    x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+});
 
-            // Add services to the container.
+builder.Services.Configure<ApiBehaviorOptions>(options =>
+{
+    options.SuppressModelStateInvalidFilter = true;
+});
 
-            builder.Services.AddControllers();
-            builder.Services.AddControllers()
-                  .AddJsonOptions(x =>
-                {
-                       x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
-                });
+builder.Services.AddScoped<ValidateModelAttribute>();
 
+// Swagger
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
-            //Connect with DbContext.
-            builder.Services.AddDbContext<ClinicDbContext>(options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
-            ));
-            //SERVICES
-            builder.Services.AddScoped<IDoctorService, DoctorService>();
-            builder.Services.AddScoped<IClinicService, ClinicService>();
-            builder.Services.AddScoped<IPatientService, PatientService>();
-            builder.Services.AddScoped<IAppointmentService, AppointmentService>();
-            builder.Services.AddScoped<IDiagnosisService, DiagnosisService>();
-            // REPOs
-            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-            builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
-            builder.Services.AddScoped<IPatientRepository, PatientRepository>();
-            builder.Services.AddScoped<IClinicRepository,ClinicRepository>();
-            builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
-            builder.Services.AddScoped<IDiagnosisRepository, DiagnosisRepository>();
+// DbContext
+builder.Services.AddDbContext<ClinicDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-            //Mapper
-            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+// Services
+builder.Services.AddScoped<IDoctorService, DoctorService>();
+builder.Services.AddScoped<IClinicService, ClinicService>();
+builder.Services.AddScoped<IPatientService, PatientService>();
+builder.Services.AddScoped<IAppointmentService, AppointmentService>();
+builder.Services.AddScoped<IDiagnosisService, DiagnosisService>();
 
-            //-------------------------------------------------------------
-            var app = builder.Build();
+// Unit of Work
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-            // Configure the HTTP request pipeline.
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
+// AutoMapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            app.UseHttpsRedirection();
+var app = builder.Build();
 
-            app.UseAuthorization();
+// Exception Handling Middleware
+app.UseMiddleware<ExceptionMiddleware>();
 
-
-            app.MapControllers();
-
-            app.Run();
-
-        }
-    }
+// Dev tools
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
+
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+app.Run();

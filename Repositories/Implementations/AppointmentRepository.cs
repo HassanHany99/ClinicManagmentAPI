@@ -9,13 +9,10 @@ namespace ClinicAPI.Repositories.Implementations
     public class AppointmentRepository : IAppointmentRepository
     {
         private readonly ClinicDbContext _context;
-        private readonly IMapper _mapper;
 
-
-        public AppointmentRepository(ClinicDbContext context, IMapper mapper)
+        public AppointmentRepository(ClinicDbContext context)
         {
             _context = context;
-            _mapper = mapper;
         }
       
 
@@ -45,10 +42,6 @@ namespace ClinicAPI.Repositories.Implementations
 
             return appointment;
 
-
-
-
-
         }
 
         public async Task<Appointment> AddAsync(Appointment appointment)
@@ -59,7 +52,7 @@ namespace ClinicAPI.Repositories.Implementations
         }
 
         public async Task<bool> DeleteAsync(Appointment appointment)
-        {
+        {      
             _context.Appointments.Remove(appointment);
             return true;
 
