@@ -37,13 +37,11 @@ namespace ClinicAPI
             builder.Services.AddScoped<IPatientService, PatientService>();
             builder.Services.AddScoped<IAppointmentService, AppointmentService>();
             builder.Services.AddScoped<IDiagnosisService, DiagnosisService>();
-            // REPOs
+
+
+           //Unit Of Work
             builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-            builder.Services.AddScoped<IDoctorRepository, DoctorRepository>();
-            builder.Services.AddScoped<IPatientRepository, PatientRepository>();
-            builder.Services.AddScoped<IClinicRepository,ClinicRepository>();
-            builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
-            builder.Services.AddScoped<IDiagnosisRepository, DiagnosisRepository>();
+          
 
             //Mapper
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());

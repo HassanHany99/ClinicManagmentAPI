@@ -1,7 +1,9 @@
 ﻿using ClinicAPI.Data;
+using ClinicAPI.Repositories.Implementations;
 using ClinicAPI.Repositories.Interfaces;
 
 namespace ClinicAPI.Repositories
+
 {
     public class UnitOfWork : IUnitOfWork
     {
@@ -12,24 +14,19 @@ namespace ClinicAPI.Repositories
         public IAppointmentRepository Appointments { get; }
         public IDiagnosisRepository Diagnosises { get; }
 
-        public UnitOfWork(ClinicDbContext context
-            , IDoctorRepository doctorsRepository 
-            , IPatientRepository patientRepository
-            , IClinicRepository clinicRepository
-            , IAppointmentRepository appointmentRepository
-            , IDiagnosisRepository diagnosisRepository)
+        public UnitOfWork(ClinicDbContext context)
         {
             _context = context;
-            Doctors =  doctorsRepository;
-            Patients = patientRepository;
-            Clinics = clinicRepository;
-            Appointments = appointmentRepository;
-            Diagnosises = diagnosisRepository;
+            Doctors = new DoctorRepository(_context);
+            Patients = new PatientRepository(_context);
+            Clinics = new ClinicRepository(_context);
+            Appointments = new AppointmentRepository(_context);
+            Diagnosises = new DiagnosisRepository(_context);
         }
 
         public async Task<int> CompleteAsync()
         {
-         return  await _context.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
     }
 }
