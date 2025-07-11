@@ -32,9 +32,31 @@ builder.Services.AddScoped<ValidateModelAttribute>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 // DbContext
 builder.Services.AddDbContext<ClinicDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+            builder.Services.AddEndpointsApiExplorer();
+            builder.Services.AddSwaggerGen();
+
+            //Connect with DbContext.
+            builder.Services.AddDbContext<ClinicDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")
+            ));
+            //SERVICES
+            builder.Services.AddScoped<IDoctorService, DoctorService>();
+            builder.Services.AddScoped<IClinicService, ClinicService>();
+            builder.Services.AddScoped<IPatientService, PatientService>();
+            builder.Services.AddScoped<IAppointmentService, AppointmentService>();
+            builder.Services.AddScoped<IDiagnosisService, DiagnosisService>();
+
+
+           //Unit Of Work
+            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+          
+
 
 // Services
 builder.Services.AddScoped<IDoctorService, DoctorService>();

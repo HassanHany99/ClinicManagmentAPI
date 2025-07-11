@@ -4,8 +4,9 @@ namespace ClinicAPI.DTOs.Appointment
 {
     public class AppointmentCreateDTO
     {
-       
+        [Required]
         public int DoctorId { get; set; }
+        [Required]
         public int PatientId {get; set; }
 
         [Required]

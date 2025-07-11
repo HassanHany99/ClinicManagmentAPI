@@ -15,13 +15,7 @@ namespace ClinicAPI.Controllers
         {
             _doctorService = doctorService;
         }
-
-        [HttpPost("test-validation")]
-        public IActionResult TestValidation(DoctorCreateDTO dto)
-        {
-            return Ok(new { message = "DTO is valid!" });
-        }
-
+        
         [HttpGet]
         public async Task<ActionResult<IEnumerable<DoctorReadDTO>>> GetAllAsync()
         {

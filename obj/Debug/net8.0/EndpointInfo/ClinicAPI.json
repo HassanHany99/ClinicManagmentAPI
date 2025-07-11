@@ -960,7 +960,9 @@
     "schemas": {
       "AppointmentCreateDTO": {
         "required": [
-          "appointmentDate"
+          "appointmentDate",
+          "doctorId",
+          "patientId"
         ],
         "type": "object",
         "properties": {
@@ -1050,21 +1052,28 @@
         "additionalProperties": false
       },
       "ClinicUpdateDTO": {
+        "required": [
+          "name"
+        ],
         "type": "object",
         "properties": {
           "name": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false
       },
       "CreateDiagnosisDTO": {
+        "required": [
+          "appointmentId",
+          "description"
+        ],
         "type": "object",
         "properties": {
           "description": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "appointmentId": {
             "type": "integer",
@@ -1115,21 +1124,28 @@
         "additionalProperties": false
       },
       "DoctorUpdateDTO": {
+        "required": [
+          "name"
+        ],
         "type": "object",
         "properties": {
           "name": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false
       },
       "PatientCreateDTO": {
+        "required": [
+          "doctorId",
+          "name"
+        ],
         "type": "object",
         "properties": {
           "name": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "doctorId": {
             "type": "integer",
@@ -1157,6 +1173,10 @@
         "additionalProperties": false
       },
       "PatientUpdateDTO": {
+        "required": [
+          "id",
+          "name"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -1168,8 +1188,8 @@
             "format": "int32"
           },
           "name": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false
@@ -1201,11 +1221,14 @@
         "additionalProperties": false
       },
       "UpdateDiagnosisDTO": {
+        "required": [
+          "description"
+        ],
         "type": "object",
         "properties": {
           "description": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           }
         },
         "additionalProperties": false

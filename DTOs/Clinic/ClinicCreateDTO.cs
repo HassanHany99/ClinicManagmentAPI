@@ -4,7 +4,7 @@ namespace ClinicAPI.DTOs.Clinic
 {
     public class ClinicCreateDTO
     {
-        [Required(ErrorMessage = "Name is required")]
+        [Required(ErrorMessage = "Clinic Name is required")]
         public string name { get; set; }
     }
 }

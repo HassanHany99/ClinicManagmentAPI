@@ -20,7 +20,7 @@ namespace ClinicAPI.Filters
 
                 var errorResponse = new
                 {
-                    statusCode = 400,
+                    statusCode = 55555,
                     errors = errors
                 };
 
