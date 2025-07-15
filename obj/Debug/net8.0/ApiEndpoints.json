@@ -7,17 +7,7 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[ClinicAPI.DTOs.Appointment.AppointmentReadDTO, ClinicAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "ClinicAPI.Controllers.AppointmentController",
@@ -33,17 +23,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "ClinicAPI.DTOs.Appointment.AppointmentReadDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "ClinicAPI.Controllers.AppointmentController",
@@ -59,17 +39,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "ClinicAPI.DTOs.Appointment.AppointmentReadDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
+    "ReturnTypes": [],
     "EndpointName": "GetAppointmentById"
   },
   {
@@ -434,22 +404,6 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "ClinicAPI.Controllers.DoctorController",
-    "Method": "TestValidation",
-    "RelativePath": "api/Doctor/test-validation",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "ClinicAPI.DTOs.Doctor.DoctorCreateDTO",
         "IsRequired": true
       }
     ],

@@ -1,8 +1,8 @@
 ﻿using System.Net;
-using Microsoft.OpenApi.Exceptions;
-using ClinicAPI.Errors;
+
 using System.Text.Json;
-using ClinicAPI.Errors;
+
+using ClinicAPI.Responses;
 
 namespace ClinicAPI.Middleware
 {
@@ -18,12 +18,12 @@ namespace ClinicAPI.Middleware
             _logger = logger;
             _env = env;
         }
-      
+
 
 
         public async Task InvokeAsync(HttpContext context)
         {
- 
+
             try
             {
                 await _next(context);
@@ -34,8 +34,8 @@ namespace ClinicAPI.Middleware
                 context.Response.ContentType = "application/json";
                 context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
                 var response = _env.IsDevelopment()
-                    ? new ApiException(context.Response.StatusCode, ex.Message, ex.StackTrace)
-                    : new ApiException(context.Response.StatusCode, "Internal Server Error");
+                    ? new ApiResponse<string>(context.Response.StatusCode, ex.Message, ex.StackTrace)
+                    : new ApiResponse<string>(context.Response.StatusCode, "Internal Server Error");
 
                 var options = new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase };
                 var json = JsonSerializer.Serialize(response, options);

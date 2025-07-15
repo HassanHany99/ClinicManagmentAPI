@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ClinicAPI.Responses;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace ClinicAPI.Filters
@@ -12,17 +13,22 @@ namespace ClinicAPI.Filters
         {
             if (!context.ModelState.IsValid)
             {
-              var errors= context.ModelState.
-                    Where(e => e.Value.Errors.Count > 0)
-                    .SelectMany(e => e.Value.Errors) 
-                    .Select(e => e.ErrorMessage)
-                    .ToList();
+                var errors = context.ModelState
+                      .Where(x => x.Value.Errors.Count > 0)
+                      .ToDictionary(
+                    kvp => kvp.Key,
+                    kvp => kvp.Value.Errors.Select(e => e.ErrorMessage).ToArray()
+                  );
 
-                var errorResponse = new
+
+                var errorResponse = new ApiResponse<Dictionary<string, string[]>>
                 {
-                    statusCode = 55555,
-                    errors = errors
+                    StatusCode = 400,
+                    Success = false,
+                    Message = "One or more validation errors occurred.",
+                    Data = errors
                 };
+
 
                 context.Result = new BadRequestObjectResult(errorResponse);
 

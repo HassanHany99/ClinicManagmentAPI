@@ -12,33 +12,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AppointmentReadDTO"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AppointmentReadDTO"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/AppointmentReadDTO"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -67,24 +41,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AppointmentReadDTO"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AppointmentReadDTO"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AppointmentReadDTO"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -108,24 +65,7 @@
         ],
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AppointmentReadDTO"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AppointmentReadDTO"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AppointmentReadDTO"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       },
@@ -563,37 +503,6 @@
         }
       }
     },
-    "/api/Doctor/test-validation": {
-      "post": {
-        "tags": [
-          "Doctor"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DoctorCreateDTO"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/DoctorCreateDTO"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/DoctorCreateDTO"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/api/Doctor": {
       "get": {
         "tags": [
@@ -977,32 +886,6 @@
           "appointmentDate": {
             "type": "string",
             "format": "date-time"
-          }
-        },
-        "additionalProperties": false
-      },
-      "AppointmentReadDTO": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "appointmentDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "doctorName": {
-            "type": "string",
-            "nullable": true
-          },
-          "patientName": {
-            "type": "string",
-            "nullable": true
-          },
-          "diagnosisDescription": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false
