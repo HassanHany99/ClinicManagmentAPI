@@ -11,13 +11,15 @@ A RESTful Web API for managing doctors, patients, clinics, appointments, and dia
 - ✅ Built full **CRUD operations** for:
   - 🧑‍⚕️ Doctor
   - 👤 Patient
-  - 🏥 Clinics
-  - 📅 Appointments
+  - 🏥 Clinic
+  - 📅 Appointment
   - 📝 Diagnosis
 - ✅ Used **AutoMapper** for clean and efficient DTO mapping
 - ✅ Implemented full **async/await** pattern to avoid blocking calls
+- ✅ Added **custom `ApiResponse<T>` wrapper** to unify all API responses
+- ✅ Implemented **global model validation filter**
+- ✅ Added **global exception handling middleware** for consistent error responses
 - ✅ Committed to **Clean Code**, **SOLID principles**, and separation of concerns
-- 🛠️ Currently integrating **JWT Authentication** & **Authorization**
 
 ---
 
@@ -35,11 +37,11 @@ A RESTful Web API for managing doctors, patients, clinics, appointments, and dia
 
 ## 🧩 What's Next
 
-- ⏳ Apply **Validation** to DTOs using Data Annotations or FluentValidation
 - 🔐 Finalize **JWT Authentication** & **Role-based Authorization**
-- 🛡️ Build **Global Exception Handling Middleware**
 - 🧾 Add **Logging** and structured **Error Tracking**
-- 🧪 Add **Unit Tests** for services
+- 🧪 Write **Unit Tests** for services and core logic
+- 🧑‍🏫 Improve documentation with clear examples for each endpoint
+- 🚀 Add Swagger for API testing and documentation
 
 ---
 
@@ -51,8 +53,20 @@ A RESTful Web API for managing doctors, patients, clinics, appointments, and dia
 - **LINQ**
 - **Repository Pattern + Unit of Work**
 - **RESTful API Design**
-- **JWT Authentication** *(in progress)*
+- **JWT Authentication** *(coming soon)*
 - **C# 12**
+
+---
+
+## 📦 Project Features
+
+- ✅ Clean, unified API response format for all endpoints
+- ✅ Centralized model validation using filters
+- ✅ Global exception handling using middleware
+- ✅ Clear separation of concerns (Layered Architecture)
+- ✅ Entity-DTO mapping using AutoMapper
+- ✅ Repositories isolated from services using interfaces
+- ✅ Consistent status codes and error handling
 
 ---
 
@@ -64,31 +78,35 @@ A RESTful Web API for managing doctors, patients, clinics, appointments, and dia
 - `Unit of Work` → Manage transactions and consistency
 - `DTOs` → Abstract and sanitize data across layers
 - `AutoMapper` → Clean transformation between Entities ⇄ DTOs
+- `Filters` → Centralize model validation logic
+- `Middleware` → Catch and format global exceptions
 
 ---
 
 ## 🔐 Security
 
-JWT authentication is being integrated to protect endpoints and support secure access for users (Admin/Doctor).
+JWT authentication is currently being integrated to secure endpoints and support user roles (e.g., Admin, Doctor).
 
 ---
 
 ## 🚀 Project Status
 
-The **core structure is complete**, covering major clinic operations (doctors, patients, appointments, diagnosis, and clinics).  
-The project is being continuously **refined** and **expanded** to reflect real-world backend development practices and production readiness.
+The **core backend features are complete**, covering all major clinic operations.  
+The API now returns **consistent structured responses**, and follows best practices in clean architecture, async programming, and RESTful API design.
 
 ---
 
 ## 📌 Notes
 
-This project is built from scratch to master backend development using .NET, and to demonstrate clean architecture, database relationships, async programming, and scalable patterns — with a goal of becoming **job-ready for backend development roles**.
-
-Stay tuned for upcoming improvements! 🚀
+This project is being built from scratch to master backend development using .NET — applying layered design, clean practices, and production-level coding standards — with the goal of becoming **job-ready for backend developer roles**.
 
 ---
 
 ## 🧑‍💻 Author
 
 **Hassan Hany Emara**  
-SOFTWARE ENGINEER 
+Software Engineer 
+
+---
+
+⭐ Stay tuned for JWT integration, logging, and Swagger documentation!  
