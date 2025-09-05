@@ -334,12 +334,6 @@ W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\scopedcss\bundle\Clin
 W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\staticwebassets.build.json
 W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\staticwebassets.development.json
 W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\staticwebassets\msbuild.ClinicAPI.Microsoft.AspNetCore.StaticWebAssets.props
-W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\staticwebassets\msbuild.ClinicAPI.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\staticwebassets\msbuild.build.ClinicAPI.props
-W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.ClinicAPI.props
-W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.ClinicAPI.props
-W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\staticwebassets.pack.json
 W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\ClinicAPI.csproj.Up2Date
 W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\ClinicAPI.dll
@@ -347,3 +341,8 @@ W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\refint\ClinicAPI.dll
 W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\ClinicAPI.pdb
 W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\ClinicAPI.genruntimeconfig.cache
 W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\ref\ClinicAPI.dll
+W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\rpswa.dswa.cache.json
+W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\rjimswa.dswa.cache.json
+W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\staticwebassets.build.json.cache

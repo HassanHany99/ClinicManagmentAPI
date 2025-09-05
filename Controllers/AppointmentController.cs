@@ -1,12 +1,10 @@
 ﻿using ClinicAPI.DTOs.Appointment;
 using ClinicAPI.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using ClinicAPI.Repositories;
-using ClinicAPI.Responses;
 
 namespace ClinicAPI.Controllers
 {
-   
+
     public class AppointmentController : BaseApiController
     {
         private readonly IAppointmentService _appointmentService;
@@ -47,7 +45,7 @@ namespace ClinicAPI.Controllers
                 return ErrorResponse("Invalid doctor or patient IDs", 400);
             }
 
-            return SuccessResponse(appointment , "Appointment Created" ,201 );
+            return SuccessResponse(appointment, "Appointment Created", 201);
         }
 
 
@@ -62,7 +60,7 @@ namespace ClinicAPI.Controllers
 
 
         [HttpDelete("{id}")]
-        public async  Task<IActionResult> DeleteAsync(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
             var appointment = await _appointmentService.DeleteAsync(id);
 

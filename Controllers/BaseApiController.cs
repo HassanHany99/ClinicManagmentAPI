@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ClinicAPI.Responses;
+﻿using ClinicAPI.Responses;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicAPI.Controllers
 {
@@ -16,8 +16,8 @@ namespace ClinicAPI.Controllers
 
         protected IActionResult ErrorResponse(string message, int statusCode = 400)
         {
-            var response = new ApiResponse<string>(statusCode , message );
-          
+            var response = new ApiResponse<string>(statusCode, message);
+
             return StatusCode(statusCode, response);
 
         }

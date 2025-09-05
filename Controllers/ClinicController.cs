@@ -1,21 +1,14 @@
-﻿using AutoMapper;
-using ClinicAPI.Data;
-using ClinicAPI.DTOs.Clinic;
-using Microsoft.AspNetCore.Mvc;
-using ClinicAPI.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.EntityFrameworkCore;
+﻿using ClinicAPI.DTOs.Clinic;
 using ClinicAPI.Services.Interfaces;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 
 
 namespace ClinicAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ClinicController : ControllerBase
+
+    public class ClinicController : BaseApiController
     {
-       
+
         private readonly IClinicService _clinicService;
         public ClinicController(IClinicService clinicService)
         {
@@ -24,52 +17,51 @@ namespace ClinicAPI.Controllers
 
         // APIs
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ClinicReadDTO>>> GetClinics()
+        public async Task<IActionResult> GetClinics()
         {
             var clinics = await _clinicService.GetAllAsync();
-            return Ok(clinics);
+            return SuccessResponse(clinics, "Clinics fetched");
         }
 
 
         [HttpGet(("{id}"), Name = "GetClinicById")]
-       public async Task<ActionResult<ClinicReadDTO>> GetByIdAsync(int id)
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
             var clinic = await _clinicService.GetByIdAsync(id);
-            if (clinic == null) return NotFound();
-            return Ok(clinic);
+            if (clinic == null) return ErrorResponse("Clinic not found", 404);
+            return SuccessResponse(clinic, "Clinic fetched");
 
         }
 
 
         [HttpPost]
-        public async Task<ActionResult<ClinicReadDTO>> AddAsync(ClinicCreateDTO dto)
+        public async Task<IActionResult> AddAsync(ClinicCreateDTO dto)
         {
             var addedClinic = await _clinicService.AddAsync(dto);
 
-            return CreatedAtRoute("GetClinicById", new { id = addedClinic.Id }, addedClinic);
+            return SuccessResponse(addedClinic, "Clinic Added", 201);
         }
 
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateAsync( int id, ClinicUpdateDTO clinicDTO)
+        public async Task<IActionResult> UpdateAsync(int id, ClinicUpdateDTO clinicDTO)
         {
             var clinic = await _clinicService.UpdateAsync(id, clinicDTO);
-            if (!clinic) return NotFound();
-            return NoContent();
- 
+            if (!clinic) return ErrorResponse("Clinic not found", 404);
+            return NoContentResponse();
+
         }
 
-  
+
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteAsync(int id)  
-        { 
-          var clinic = await _clinicService.DeleteAsync(id);
-            if (!clinic) return NotFound();
-            return NoContent();
-    
-        
+        public async Task<IActionResult> DeleteAsync(int id)
+        {
+            var clinic = await _clinicService.DeleteAsync(id);
+            if (!clinic) return ErrorResponse("Clinic not found", 404);
+            return NoContentResponse();
+
         }
-       
+
 
     }
 }

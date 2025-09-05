@@ -4,9 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class DiagnosisController : ControllerBase
+
+    public class DiagnosisController : BaseApiController
     {
         private readonly IDiagnosisService _diagnosisService;
         public DiagnosisController(IDiagnosisService diagnosisService)
@@ -15,55 +14,55 @@ namespace ClinicAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ReadDiagnosisDTO>>> GetAllAsync()
+        public async Task<IActionResult> GetAllAsync()
         {
             var diagnosises = await _diagnosisService.GetAllAsync();
-            return Ok(diagnosises);
+            return SuccessResponse(diagnosises, "Diagnosises fetched ", 200);
 
         }
 
 
         [HttpGet(("{id}"), Name = "GetDiagnosisById")]
-        public async Task<ActionResult<ReadDiagnosisDTO>> GetByIdAsync(int id)
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
             var diagnosis = await _diagnosisService.GetByIdAsync(id);
 
-            if (diagnosis == null) return NotFound();
+            if (diagnosis == null) return ErrorResponse("Diagnosis not found", 404);
 
-            return Ok(diagnosis);
+            return SuccessResponse(diagnosis, "Diagnosis fetched ", 200);
         }
 
 
         [HttpPost]
-        public async Task<ActionResult<ReadDiagnosisDTO>> AddAsync(CreateDiagnosisDTO dto)
+        public async Task<IActionResult> AddAsync(CreateDiagnosisDTO dto)
         {
             var diagnosis = await _diagnosisService.AddAsync(dto);
             if (diagnosis == null)
             {
-                return BadRequest("Invalid Appointment Id Or duplicated Description");
+                return ErrorResponse("Invalid Appointment Id Or duplicated Description", 400);
             }
-            return CreatedAtRoute("GetDiagnosisById", new { id = diagnosis.Id }, diagnosis);
+            return SuccessResponse(diagnosis, "Diagnosis added", 201);
 
         }
 
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateAsync(int id, UpdateDiagnosisDTO dto)
+        public async Task<IActionResult> UpdateAsync(int id, UpdateDiagnosisDTO dto)
         {
             var diagnosis = await _diagnosisService.UpdateAsync(id, dto);
 
-            if ( !diagnosis ) return NotFound();
+            if (!diagnosis) return ErrorResponse("Diagnosis not found", 404);
 
-            return NoContent();
+            return NoContentResponse();
 
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteAsync(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
             var diagnosis = await _diagnosisService.DeleteAsync(id);
-            if (!diagnosis) return NotFound();
-            return NoContent();
+            if (!diagnosis) return ErrorResponse("Diagnosis not found", 404);
+            return NoContentResponse();
 
         }
 

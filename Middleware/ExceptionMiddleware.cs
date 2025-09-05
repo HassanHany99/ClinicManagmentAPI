@@ -4,7 +4,7 @@ using System.Text.Json;
 
 using ClinicAPI.Responses;
 
-namespace ClinicAPI.Middleware
+namespace ClinicAPI.Middleware     
 {
     public class ExceptionMiddleware
     {

@@ -3,32 +3,48 @@
   "WorkspaceRootPath": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:middleware\\exceptionmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\filters\\validatemodelattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:filters\\validatemodelattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\controllers\\baseapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:controllers\\baseapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\responses\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:responses\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\services\\implementations\\clinicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:services\\implementations\\clinicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\dtos\\diagnosis\\creatediagnosisdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:dtos\\diagnosis\\creatediagnosisdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\unit of work\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:unit of work\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\filters\\validatemodelattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:filters\\validatemodelattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\unit of work\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:unit of work\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\services\\implementations\\diagnosisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:services\\implementations\\diagnosisservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\repositories\\implementations\\appointmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:repositories\\implementations\\appointmentrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\repositories\\implementations\\clinicrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:repositories\\implementations\\clinicrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\repositories\\implementations\\patientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:repositories\\implementations\\patientrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\services\\implementations\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:services\\implementations\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|w:\\git tests\\clinicapi\\clinicmanagmentapi\\controllers\\baseapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A024718D-B0BB-412C-BCB9-882BEE27927F}|ClinicAPI.csproj|solutionrelative:controllers\\baseapicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,19 +54,19 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CreateDiagnosisDTO.cs",
-              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\DTOs\\Diagnosis\\CreateDiagnosisDTO.cs",
-              "RelativeDocumentMoniker": "DTOs\\Diagnosis\\CreateDiagnosisDTO.cs",
-              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\DTOs\\Diagnosis\\CreateDiagnosisDTO.cs",
-              "RelativeToolTip": "DTOs\\Diagnosis\\CreateDiagnosisDTO.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAYAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "AppointmentRepository.cs",
+              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Repositories\\Implementations\\AppointmentRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implementations\\AppointmentRepository.cs",
+              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Repositories\\Implementations\\AppointmentRepository.cs",
+              "RelativeToolTip": "Repositories\\Implementations\\AppointmentRepository.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAowD8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T19:50:22.957Z",
+              "WhenOpened": "2025-08-25T14:49:27.372Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
@@ -59,86 +75,132 @@
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ClinicService.cs",
+              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Services\\Implementations\\ClinicService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\ClinicService.cs",
+              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Services\\Implementations\\ClinicService.cs",
+              "RelativeToolTip": "Services\\Implementations\\ClinicService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T13:34:16.178Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "BaseApiController.cs",
-              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Controllers\\BaseApiController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BaseApiController.cs",
-              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Controllers\\BaseApiController.cs",
-              "RelativeToolTip": "Controllers\\BaseApiController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAA9wBsAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T01:48:26.741Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ValidateModelAttribute.cs",
-              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Filters\\ValidateModelAttribute.cs",
-              "RelativeDocumentMoniker": "Filters\\ValidateModelAttribute.cs",
-              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Filters\\ValidateModelAttribute.cs",
-              "RelativeToolTip": "Filters\\ValidateModelAttribute.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T23:27:34.274Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ExceptionMiddleware.cs",
-              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Middleware\\ExceptionMiddleware.cs",
-              "RelativeDocumentMoniker": "Middleware\\ExceptionMiddleware.cs",
-              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Middleware\\ExceptionMiddleware.cs",
-              "RelativeToolTip": "Middleware\\ExceptionMiddleware.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T18:15:48.663Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AppointmentController.cs",
-              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Controllers\\AppointmentController.cs",
-              "RelativeDocumentMoniker": "Controllers\\AppointmentController.cs",
-              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Controllers\\AppointmentController.cs",
-              "RelativeToolTip": "Controllers\\AppointmentController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAEkAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T18:09:13.275Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ApiResponse.cs",
-              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Responses\\ApiResponse.cs",
-              "RelativeDocumentMoniker": "Responses\\ApiResponse.cs",
-              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Responses\\ApiResponse.cs",
-              "RelativeToolTip": "Responses\\ApiResponse.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-14T17:54:34.553Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAywBwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-11T20:10:30.426Z",
+              "WhenOpened": "2025-09-05T13:32:51.744Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IUnitOfWork.cs",
+              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Unit Of Work\\IUnitOfWork.cs",
+              "RelativeDocumentMoniker": "Unit Of Work\\IUnitOfWork.cs",
+              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Unit Of Work\\IUnitOfWork.cs",
+              "RelativeToolTip": "Unit Of Work\\IUnitOfWork.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAowAkAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T13:28:35.37Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DiagnosisService.cs",
+              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Services\\Implementations\\DiagnosisService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\DiagnosisService.cs",
+              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Services\\Implementations\\DiagnosisService.cs",
+              "RelativeToolTip": "Services\\Implementations\\DiagnosisService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T13:27:41.685Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ClinicRepository.cs",
+              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Repositories\\Implementations\\ClinicRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implementations\\ClinicRepository.cs",
+              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Repositories\\Implementations\\ClinicRepository.cs",
+              "RelativeToolTip": "Repositories\\Implementations\\ClinicRepository.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T13:01:49.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PatientRepository.cs",
+              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Repositories\\Implementations\\PatientRepository.cs",
+              "RelativeDocumentMoniker": "Repositories\\Implementations\\PatientRepository.cs",
+              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Repositories\\Implementations\\PatientRepository.cs",
+              "RelativeToolTip": "Repositories\\Implementations\\PatientRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-05T13:01:48.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UnitOfWork.cs",
+              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Unit Of Work\\UnitOfWork.cs",
+              "RelativeDocumentMoniker": "Unit Of Work\\UnitOfWork.cs",
+              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Unit Of Work\\UnitOfWork.cs",
+              "RelativeToolTip": "Unit Of Work\\UnitOfWork.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T14:49:10.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AppointmentService.cs",
+              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Services\\Implementations\\AppointmentService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\AppointmentService.cs",
+              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Services\\Implementations\\AppointmentService.cs",
+              "RelativeToolTip": "Services\\Implementations\\AppointmentService.cs",
+              "ViewState": "AgIAADEAAAAAACAwDoQ/wDoAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T14:48:39.656Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ValidateModelAttribute.cs",
+              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Filters\\ValidateModelAttribute.cs",
+              "RelativeDocumentMoniker": "Filters\\ValidateModelAttribute.cs",
+              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Filters\\ValidateModelAttribute.cs",
+              "RelativeToolTip": "Filters\\ValidateModelAttribute.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAmwBIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-25T14:09:47.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BaseApiController.cs",
+              "DocumentMoniker": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Controllers\\BaseApiController.cs",
+              "RelativeDocumentMoniker": "Controllers\\BaseApiController.cs",
+              "ToolTip": "W:\\GIT TESTS\\ClinicAPI\\ClinicManagmentAPI\\Controllers\\BaseApiController.cs",
+              "RelativeToolTip": "Controllers\\BaseApiController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAiwA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T19:45:11.36Z"
             }
           ]
         }

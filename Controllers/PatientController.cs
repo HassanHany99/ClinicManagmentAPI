@@ -4,9 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class PatientController : ControllerBase
+
+    public class PatientController : BaseApiController
     {
         private readonly IPatientService _patientService;
         public PatientController(IPatientService patientService)
@@ -15,56 +14,56 @@ namespace ClinicAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PatientReadDTO>>> GetAllAsync()
+        public async Task<IActionResult> GetAllAsync()
         {
             var patients = await _patientService.GetAllAsync();
-            return Ok(patients);
+            return SuccessResponse(patients, "Patients fetched");
         }
 
         [HttpGet(("{id}"), Name = "GetPatientByIdAsync")]
-        public async Task<ActionResult<PatientReadDTO>> GetByIdAsync(int id)
+        public async Task<IActionResult> GetByIdAsync(int id)
         {
             var patient = await _patientService.GetByIdAsync(id);
 
-            if (patient == null) return NotFound();
+            if (patient == null) return ErrorResponse("Patient not found", 404);
 
-            return Ok(patient);
+            return SuccessResponse(patient, "Patient fetched");
         }
 
         [HttpPost]
-        public async Task<ActionResult<PatientReadDTO>> AddAsync(PatientCreateDTO dto)
+        public async Task<IActionResult> AddAsync(PatientCreateDTO dto)
         {
             var patient = await _patientService.AddAsync(dto);
 
-            if (patient is null) return BadRequest("Invalid Doctor ID");
+            if (patient is null) return ErrorResponse("Invalid Doctor ID", 400);
 
-            return
-             CreatedAtRoute("GetPatientByIdAsync", new { id = patient.Id }, patient);
+            return SuccessResponse(patient, "Patient added", 201);
+
 
         }
 
         [HttpPut]
-        public async Task<ActionResult> UpdateAsync(PatientUpdateDTO dto)
+        public async Task<IActionResult> UpdateAsync(PatientUpdateDTO dto)
         {
             var patient = await _patientService.UpdateAsync(dto);
 
             if (!patient)
             {
-                return BadRequest("Invalid Doctor or Patient IDs");
+                return ErrorResponse("Invalid Doctor or Patient IDs", 400);
             }
 
-            return NoContent();
+            return NoContentResponse();
 
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteAsync(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
             var patient = await _patientService.DeleteAsync(id);
 
-            if (!patient) return NotFound();
+            if (!patient) return ErrorResponse("Patient not found", 404);
 
-            return NoContent();
+            return NoContentResponse();
 
         }
 
