@@ -20,6 +20,8 @@ A RESTful Web API for managing doctors, patients, clinics, appointments, and dia
 - ✅ Implemented **global model validation filter**
 - ✅ Added **global exception handling middleware** for consistent error responses
 - ✅ Committed to **Clean Code**, **SOLID principles**, and separation of concerns
+- ✅ Implemented **Basic Jwt token generator**
+
 
 ---
 
@@ -37,7 +39,7 @@ A RESTful Web API for managing doctors, patients, clinics, appointments, and dia
 
 ## 🧩 What's Next
 
-- 🔐 Finalize **JWT Authentication** & **Role-based Authorization**
+- 🔐 Finalize **Role-based Authorization**
 - 🧾 Add **Logging** and structured **Error Tracking**
 - 🧪 Write **Unit Tests** for services and core logic
 - 🧑‍🏫 Improve documentation with clear examples for each endpoint
