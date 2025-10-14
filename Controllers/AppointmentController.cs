@@ -1,20 +1,22 @@
 ﻿using ClinicAPI.DTOs.Appointment;
 using ClinicAPI.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicAPI.Controllers
 {
 
+
     public class AppointmentController : BaseApiController
     {
         private readonly IAppointmentService _appointmentService;
-
 
         public AppointmentController(IAppointmentService appointmentService)
         {
             _appointmentService = appointmentService;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetAllAppointments()
         {

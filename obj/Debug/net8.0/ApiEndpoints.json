@@ -320,6 +320,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "ClinicAPI.Controllers.JwtController",
+    "Method": "Login",
+    "RelativePath": "api/Jwt",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "ClinicAPI.DTOs.UserDataDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "ClinicAPI.Controllers.PatientController",
     "Method": "GetAllAsync",
     "RelativePath": "api/Patient",

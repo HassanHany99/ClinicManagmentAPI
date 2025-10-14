@@ -2,6 +2,8 @@
 using ClinicAPI.Data;
 using ClinicAPI.Models;
 using ClinicAPI.Repositories.Interfaces;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace ClinicAPI.Repositories.Implementations
@@ -14,9 +16,10 @@ namespace ClinicAPI.Repositories.Implementations
         {
             _context = context;
         }
-      
 
 
+        [HttpGet]
+        [Authorize]
         public async Task<IEnumerable<Appointment>> GetAllAsync()
         {
             var appointments = await _context.Appointments

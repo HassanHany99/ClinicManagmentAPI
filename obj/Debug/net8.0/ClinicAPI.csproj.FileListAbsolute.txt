@@ -346,3 +346,4 @@ W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\rjimswa.dswa.cache.js
 W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
 W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
 W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\obj\Debug\net8.0\staticwebassets.build.json.cache
+W:\GIT TESTS\ClinicAPI\ClinicManagmentAPI\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
