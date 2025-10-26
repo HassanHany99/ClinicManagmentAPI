@@ -10,6 +10,7 @@ namespace ClinicAPI.Data
         public DbSet<Appointment> Appointments => Set<Appointment>();
         public DbSet<Clinic> Clinics => Set<Clinic>();
         public DbSet<Diagnosis> Diagnosis => Set<Diagnosis>();
+        public DbSet<User> Users => Set<User>();
 
         public ClinicDbContext(DbContextOptions<ClinicDbContext> options) : base(options) { }
 

@@ -1,27 +1,26 @@
-# Clinic Management System API 🏥
+# 🏥 Clinic Management System API
 
-A RESTful Web API for managing doctors, patients, clinics, appointments, and diagnoses — built with ASP.NET Core Web API using a clean, layered, and scalable architecture.
+A RESTful Web API for managing doctors, patients, clinics, appointments, and diagnoses — built with **ASP.NET Core Web API** using a clean, layered, and scalable architecture.
 
 ---
 
 ## ✅ What's Done
 
-- ✅ Structured using layered architecture: **Controllers ➜ Services ➜ Repositories ➜ Unit of Work**
-- ✅ Applied **Entity Framework Core** (Code First) with **Fluent API**
-- ✅ Built full **CRUD operations** for:
-  - 🧑‍⚕️ Doctor
-  - 👤 Patient
-  - 🏥 Clinic
-  - 📅 Appointment
-  - 📝 Diagnosis
-- ✅ Used **AutoMapper** for clean and efficient DTO mapping
-- ✅ Implemented full **async/await** pattern to avoid blocking calls
-- ✅ Added **custom `ApiResponse<T>` wrapper** to unify all API responses
-- ✅ Implemented **global model validation filter**
-- ✅ Added **global exception handling middleware** for consistent error responses
-- ✅ Committed to **Clean Code**, **SOLID principles**, and separation of concerns
-- ✅ Implemented **Basic Jwt token generator**
-
+- ✅ Layered architecture: **Controllers ➜ Services ➜ Repositories ➜ Unit of Work**
+- ✅ **Entity Framework Core** (Code First) with **Fluent API**
+- ✅ Full **CRUD operations** for:
+  - 🧑‍⚕️ Doctor  
+  - 👤 Patient  
+  - 🏥 Clinic  
+  - 📅 Appointment  
+  - 📝 Diagnosis  
+- ✅ **AutoMapper** for efficient DTO mapping  
+- ✅ **Async/await** for non-blocking operations  
+- ✅ **Custom `ApiResponse<T>`** wrapper for unified responses  
+- ✅ **Global model validation filter**  
+- ✅ **Global exception handling middleware**  
+- ✅ **Clean Code** & **SOLID principles**  
+- ✅ **JWT Authentication** (login, register, role-based authorization)
 
 ---
 
@@ -39,76 +38,63 @@ A RESTful Web API for managing doctors, patients, clinics, appointments, and dia
 
 ## 🧩 What's Next
 
-- 🔐 Finalize **Role-based Authorization**
-- 🧾 Add **Logging** and structured **Error Tracking**
-- 🧪 Write **Unit Tests** for services and core logic
-- 🧑‍🏫 Improve documentation with clear examples for each endpoint
-- 🚀 Add Swagger for API testing and documentation
+- 🔐 Enhance **JWT Authorization** and role-based access control  
+- 🧾 Add **Logging** and structured **Error Tracking**  
+- 🧪 Write **Unit Tests** for services and business logic  
+- 🚀 Add **Swagger** for interactive API documentation  
+- 📘 Expand documentation with endpoint examples  
 
 ---
 
 ## ⚙️ Tech Stack
 
-- **ASP.NET Core Web API** (.NET 8)
-- **Entity Framework Core** + SQL Server
-- **AutoMapper**
-- **LINQ**
-- **Repository Pattern + Unit of Work**
-- **RESTful API Design**
-- **JWT Authentication** *(coming soon)*
+- **ASP.NET Core Web API** (.NET 8)  
+- **Entity Framework Core** + **SQL Server**  
+- **AutoMapper**  
+- **LINQ**  
+- **Repository Pattern + Unit of Work**  
+- **RESTful API Design**  
+- **JWT Authentication**  
 - **C# 12**
 
 ---
 
-## 📦 Project Features
+## 📦 Key Features
 
-- ✅ Clean, unified API response format for all endpoints
-- ✅ Centralized model validation using filters
-- ✅ Global exception handling using middleware
-- ✅ Clear separation of concerns (Layered Architecture)
-- ✅ Entity-DTO mapping using AutoMapper
-- ✅ Repositories isolated from services using interfaces
-- ✅ Consistent status codes and error handling
-
----
-
-## 🧠 Architecture
-
-- `Controllers` → Handle API endpoints (request/response)
-- `Services` → Business logic + cross-cutting concerns
-- `Repositories` → Direct database communication
-- `Unit of Work` → Manage transactions and consistency
-- `DTOs` → Abstract and sanitize data across layers
-- `AutoMapper` → Clean transformation between Entities ⇄ DTOs
-- `Filters` → Centralize model validation logic
-- `Middleware` → Catch and format global exceptions
+- ✅ Unified API response format  
+- ✅ Centralized model validation  
+- ✅ Global exception handling middleware  
+- ✅ Layered and maintainable architecture  
+- ✅ Entity–DTO mapping via AutoMapper  
+- ✅ Consistent status codes and error handling  
+- ✅ Role-based authentication with JWT  
 
 ---
 
 ## 🔐 Security
 
-JWT authentication is currently being integrated to secure endpoints and support user roles (e.g., Admin, Doctor).
+Full **JWT Authentication** is now implemented — supporting user registration, login, and role-based access for protected endpoints.
 
 ---
 
 ## 🚀 Project Status
 
-The **core backend features are complete**, covering all major clinic operations.  
-The API now returns **consistent structured responses**, and follows best practices in clean architecture, async programming, and RESTful API design.
+All **core backend features** are complete, covering all major clinic operations.  
+The API follows **clean architecture**, **async programming**, and **best RESTful practices**.
 
 ---
 
 ## 📌 Notes
 
-This project is being built from scratch to master backend development using .NET — applying layered design, clean practices, and production-level coding standards — with the goal of becoming **job-ready for backend developer roles**.
+This project is part of a full learning journey to master backend development with .NET — applying layered design, clean coding, and production-level architecture to become **job-ready as a backend developer**.
 
 ---
 
 ## 🧑‍💻 Author
 
 **Hassan Hany Emara**  
-Software Engineer 
+Software Engineer  
 
 ---
 
-⭐ Stay tuned for JWT integration, logging, and Swagger documentation!  
+⭐ Stay tuned for updates: logging, Swagger docs, and advanced JWT authorization!

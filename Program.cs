@@ -65,7 +65,7 @@ builder.Services.AddAuthentication(op =>
 ).AddJwtBearer(op =>
 {
     
-    var key = Encoding.ASCII.GetBytes("JwtSettings:SecretKey");
+    var key = Encoding.ASCII.GetBytes(builder.Configuration["JwtSettings:SecretKey"]);
     op.TokenValidationParameters = new TokenValidationParameters
     {
         ValidateIssuer = false,

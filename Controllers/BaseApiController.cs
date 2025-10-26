@@ -20,11 +20,21 @@ namespace ClinicAPI.Controllers
 
             return StatusCode(statusCode, response);
 
-        }
-
+        } 
+         
         protected IActionResult NoContentResponse()
         {
             return NoContent();
+        }
+
+
+        protected IActionResult UnAuthorizedResponse()
+        {
+
+            var response = new ApiResponse<string>(401, "Authentication Error", "Invalid username or password");
+            return Unauthorized(response);
+        
+        
         }
     }
 }

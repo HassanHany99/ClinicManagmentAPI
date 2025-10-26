@@ -1,9 +1,11 @@
 ﻿using ClinicAPI.DTOs.Doctor;
 using ClinicAPI.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClinicAPI.Controllers
 {
+    [Authorize]
 
     public class DoctorController : BaseApiController
     {
